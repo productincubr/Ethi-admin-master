@@ -1,0 +1,245 @@
+.home_page_container {
+  background: url("../assests/welcome_banner.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+}
+
+@media screen and (max-width: 991px) {
+  .home_page_container {
+    height: 60vh;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .home_page_container {
+    height: 40vh;
+  }
+
+  .home_page_container .welcome_screen .coming_soon_text p {
+    font-size: 16px;
+  }
+
+  .home_page_container .welcome_screen .coming_soon_text h1 {
+    font-size: 30px !important;
+  }
+}
+
+.home_page_container .welcome_screen .coming_soon_text p {
+  margin-bottom: 0;
+  font-size: 20px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.home_page_container .welcome_screen .coming_soon_text h1 {
+  font-size: 50px;
+  letter-spacing: 1px;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* --------------------------------------------------New Home Page--------------------------------------------------------- */
+
+.newHaderPosition {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99999;
+}
+
+.headerNew {
+  transition: background-color 0.5s ease;
+}
+
+.frontVideo {
+  width: 100%;
+  height: 100vh;
+}
+
+.frontVideoContaienr {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.frontVideoContaienr video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This property ensures the video covers the entire container */
+}
+
+.frontVideoContaienr h2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: left;
+  color: #ffffff;
+  line-height: 2.4rem;
+  letter-spacing: 1px;
+}
+
+@media screen and (max-width: 991px) {
+  .frontVideoContaienr h2 {
+    line-height: 2.2rem;
+    letter-spacing: normal;
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .frontVideoContaienr h2 {
+    line-height: 2rem;
+    letter-spacing: normal;
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .frontVideoContaienr h2 {
+    line-height: 1.7rem;
+    letter-spacing: normal;
+    font-size: 22px;
+  }
+}
+
+.SubsupdatesSection {
+  background-color: #f7f7f7;
+  padding: 3rem 0;
+}
+
+.subsImgDiv img {
+  width: 100%;
+}
+
+.SubsupdatesTextCOnt,
+.SubsupdatesForm {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 15px;
+  width: 100%;
+}
+
+.SubsupdatesTextCOnt h4 {
+  font-weight: 400 !important;
+  line-height: 2.3rem;
+}
+.SubsupdatesForm input {
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #d2d3d3;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.SubsupdatesForm button {
+  background-color: #06384f;
+  border: 2px solid #06384f;
+  color: #ffffff;
+  padding: 0.5rem 1.5rem;
+  border-radius: 12px;
+}
+
+.SubsupdatesText {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.subsImgDiv video {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  object-fit: cover !important;
+}
+
+.Headerscrolled {
+  background-color: #ffffff !important;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -27px;
+}
+
+.accordionContainer {
+  box-shadow: none !important;
+  margin: 2rem 0rem;
+}
+
+.accordionContainer .accordion-item {
+  border: none;
+  border-bottom: 1px solid #000000;
+  box-shadow: none !important;
+}
+
+.accordion-button:focus {
+  background-color: none !important;
+  box-shadow: none !important;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #baceb4 !important;
+}
+
+.accordion-button {
+  margin-top: 1rem;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  font-weight: 500;
+}
+
+.accordianHead {
+  text-align: center;
+}
+.accordianHead h3 {
+  margin-bottom: 2rem;
+  font-weight: 400 !important;
+}
+
+.accordianHeadLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem !important;
+}
+
+.accordianHeadLogo img {
+  width: 100px;
+}
+
+.joinUsSection {
+  background-color: #f7f7f7;
+  padding: 3rem 0;
+}
+
+.accordion-button,
+.accordion-item {
+  background-color: #f7f7f7 !important;
+}
+/* 
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+.input:-internal-autofill-selected {
+  -webkit-text-fill-color: #ffffff !important;
+  -webkit-box-shadow: 0 0 0 30px white inset !important; 
+  box-shadow: 0 0 0 30px #55725d inset !important; 
+ 
+} */
+
+.shadowStyle:hover{
+  transform: scale(0.9);
+  cursor: pointer;
+}

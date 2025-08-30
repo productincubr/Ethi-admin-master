@@ -1,0 +1,176 @@
+.form_container {
+    /* background-color: #F1FAFA; */
+}
+
+.form_container .form_wrapper {
+    background-color: #F6FBFB;
+    border-radius: 12px;
+}
+
+.form_container .form_wrapper .form_div {
+    width: 100%;
+}
+
+.form_container .form_wrapper .form_div .error_msg {
+    color: red;
+}
+
+.form_container .form_wrapper .form_div label {
+    color: rgb(34, 46, 60);
+    font-weight: 500;
+}
+
+.form_container .form_wrapper .form_div .col-md-5 {
+    padding: 0;
+}
+
+.form_container .form_wrapper .form_div input {
+    width: 100%;
+    height: 38px;
+    border: none;
+    border-bottom: 1.5px solid #A8D6DA;
+    font-size: 20px;
+    padding: 0 1rem;
+}
+
+::placeholder {
+    color: #8A92A6;
+    opacity: 1; /* Firefox */
+  }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.form_container .form_wrapper .form_div input:focus,
+.form_container .form_wrapper .form_div textarea:focus {
+    outline: none;
+    border-bottom: 2px solid #A8D6DA;
+}
+
+.form_container .form_wrapper .form_div select {
+    width: 100%;
+    height: 38px;
+    border: none;
+    border-bottom: 1px solid rgb(34, 46, 60);
+    border-radius: 6px;
+    padding: 0 1rem;
+}
+
+.form_container .form_wrapper .form_div textarea {
+    border: none;
+    border-bottom: 1px solid rgb(34, 46, 60);
+    font-size: 16px;
+    padding: 1rem;
+}
+
+.submit_btn {
+    background-color: #A8D6DA;
+    color: white;
+    font-weight: 600;
+}
+
+.submit_btn:hover {
+    background-color: #A8D6DA;
+    color: white;
+    font-weight: 600;
+}
+
+.form_container .form_wrapper .form_div .img_upload_div {
+    border-bottom: 1px solid #A8D6DA;
+}
+
+.form_container .form_wrapper .form_div .img_upload input {
+    font-size: 16px;
+    border-bottom: none;
+    width: auto;
+    padding-left: 0;
+    padding-top: 0.2rem;
+}
+
+.form_container .form_wrapper .form_div .img_upload label {
+    white-space: nowrap;
+    width: 185px;
+}
+
+.form_container .form_wrapper .form_div .img_upload input::file-selector-button {
+    background-color: rgb(34, 46, 60);
+    color: white;
+    border-radius: 5px;
+    border: none;
+}
+
+.cke_chrome {
+    border: 1px solid #A8D6DA !important;
+}
+
+.cke_top {
+    border-bottom: 1px solid #A8D6DA !important;
+}
+
+.css-13cymwt-control {
+    border-color: #A8D6DA !important;
+}
+
+.css-1u9des2-indicatorSeparator,
+.css-1p3m7a8-multiValue,
+.css-wsp0cs-MultiValueGeneric {
+    background-color: #A8D6DA !important;
+    color: #FFFFFF !important;
+    font-weight: 400 !important;
+}
+
+.form_container .form_wrapper .form_div .img_upload .label_input_div {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.form_container .form_wrapper .form_div .img_upload .upload_btn {
+    background-color: #A8D6DA;
+    color: white;
+    width: 120px;
+}
+
+@media screen and (max-width: 768px) {
+
+    .name,
+    .pan,
+    .email {
+        margin-bottom: 1.5rem;
+    }
+
+    .submit_button {
+        justify-content: center !important;
+        margin: auto;
+    }
+
+    .submit_button .btn {
+        width: 150px;
+        height: 40px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .form_container .form_wrapper .form_div .img_upload .label_input_div {
+        display: flex;
+        flex-direction: column;
+        /* justify-content: start !important; */
+        align-items: center !important;
+    }
+
+    .form_container .form_wrapper .form_div .img_upload label {
+        white-space: nowrap;
+        width: auto;
+    }
+
+    .form_container .form_wrapper .form_div .img_upload label {
+        margin-bottom: 0.5rem;
+    }
+}
+
+.ck.ck-editor__editable_inline {
+    height: 200px !important;
+}

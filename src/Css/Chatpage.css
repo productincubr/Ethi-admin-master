@@ -1,0 +1,186 @@
+.chatbtns {
+  gap: 8px;
+  border: none !important;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  background-color: white;
+}
+
+.chatbtns button {
+  color: #77838f;
+  font-size: 13px;
+  border-radius: 5px 5px 0px 0px;
+  font-family: "Nunito", sans-serif;
+  border: none;
+  background-color: #f8f8f8;
+  width: 9.6rem;
+  height: 2.7rem;
+}
+
+.dietbtn:focus {
+  color: white !important;
+  background-color: #34b883 !important;
+}
+
+.aichatbtn:focus {
+  color: white !important;
+  background-color: #34b883 !important;
+}
+
+.dietechatscont {
+  height: 550px;
+  width: 100%;
+}
+
+.dp {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #e7fbf3;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  font-family: "Nunito", sans-serif;
+  padding-left: 15px;
+  padding-top: 17px;
+}
+
+.dp h2 {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+/*------------------dieplan*/
+.details {
+  font-family: "Nunito", sans-serif;
+
+  gap: 3rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.details p {
+  color: #77838f;
+  font-family: "Nunito", sans-serif;
+  font-size: 11px;
+  display: flex;
+  flex-direction: column;
+}
+
+.details p span {
+  font-family: "Nunito", sans-serif;
+  color: black;
+  font-weight: 600;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.details-btns {
+  gap: 10px;
+  margin-right: 10px;
+  display: flex;
+  justify-content: end;
+}
+
+.details-btns button {
+  position: relative;
+  outline: 1.4px solid #34b883;
+  color: #77838f;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 8px;
+  font-family: "Nunito", sans-serif;
+  border: none;
+  background-color: transparent;
+  width: 9.5rem;
+  height: 2.5rem;
+}
+
+.regeneratebtn:hover {
+  color: white !important;
+  background-color: #34b883 !important;
+}
+
+.editplanbtn:hover {
+  color: white !important;
+  background-color: #34b883 !important;
+}
+
+.Detailstable {
+  color: #77838f;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column !important;
+  font-weight: 300;
+}
+
+.label {
+  color: #77838f;
+  font-size: 13px;
+
+  font-weight: 300;
+}
+
+.age {
+  padding: 0.5rem;
+  font-family: "Nunito", sans-serif;
+  padding-left: 17px;
+  color: #e5e5e5;
+  font-size: 0.8rem;
+
+  border-radius: 5px;
+  outline: 1.5px solid #e5e5e5;
+}
+
+.Gender,
+.Allergies,
+.Diet_Preference,
+.Addtional {
+  padding: 0.5rem;
+  font-family: "Nunito", sans-serif;
+  padding-left: 17px;
+  color: #e5e5e5;
+  font-size: 0.8rem;
+  margin-top: 2rem;
+  border-radius: 5px;
+  outline: 1.5px solid #e5e5e5;
+}
+
+.sml1 {
+  font-family: "Nunito", sans-serif;
+  color: black;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.frm {
+  background-color: #ffffff;
+}
+
+.sml {
+  font-size: smaller;
+}
+
+.inputDetailsSidebar {
+  background-color: #f6fbfb;
+}
+
+@media (max-width: 974px) {
+  .details {
+    gap: 2rem;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .chatbtns {
+    left: 12px;
+    position: absolute;
+    top: 5.5rem;
+  }
+
+  .create_diet_plan_container .create_diet_plan_wrapper {
+    margin-top: 11px;
+    margin-left: 0px;
+  }
+}

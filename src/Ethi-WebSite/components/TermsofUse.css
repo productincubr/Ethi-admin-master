@@ -1,0 +1,28 @@
+.refund_return_policy p {
+  margin: 0;
+  font-size: 15px;
+}
+
+@media screen and (max-width: 576px) {
+  .refund_return_policy p {
+    margin: 0;
+    font-size: 1rem;
+  }
+}
+
+.refund_return_policy {
+  text-align: justify;
+  margin-bottom: 1.5rem;
+}
+
+.refund_return_container {
+  padding: 4rem 0 3rem 0;
+}
+
+.refund_return {
+  margin-top: 4rem;
+}
+
+.refund_return_policy h4 {
+  margin-bottom: 1.5rem;
+}

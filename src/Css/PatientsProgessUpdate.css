@@ -1,0 +1,182 @@
+.patients_progress {
+  margin: 3rem 0 2rem 0;
+}
+
+.patients_progress_wrapper .progres_cards_container .card {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  padding: 0.7rem 1.2rem;
+  border: none;
+}
+
+.progres_cards_container {
+  margin: 2rem 1rem 0.5rem 1rem;
+  padding: 0 0.5rem;
+  justify-content: space-around;
+}
+
+.progres_cards_container::-webkit-scrollbar {
+  height: 5px;
+}
+
+.patients_progress_wrapper .progres_cards_container .view_edit_div {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.patients_progress_wrapper .progres_cards_container .view_edit_div .view_btn,
+.patients_progress_wrapper .progres_cards_container .view_edit_div .edit_btn {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.patients_progress_wrapper .progres_cards_container .view_edit_div .view_btn p,
+.patients_progress_wrapper .progres_cards_container .view_edit_div .edit_btn p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.patients_progress_wrapper .progres_cards_container .card .card-text {
+  margin-bottom: 0.3rem;
+  color: #999999;
+  font-size: 12px;
+  text-align: center;
+}
+
+.patients_progress_wrapper .progres_cards_container .card .card-title {
+  font-size: 18px;
+  text-align: center;
+}
+
+.patients_progress_wrapper .patients_progress_head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.patients_progress_duration:focus-visible,
+.patients_progress_duration {
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  background-color: #a8d6da;
+  color: #fff;
+  padding: 1rem 2rem;
+}
+
+@media screen and (max-width: 500px) {
+  .progres_cards_container {
+    flex-wrap: nowrap;
+    overflow: scroll;
+    margin-top: 2rem;
+  }
+
+  .patients_progress_wrapper .progres_cards_container .card {
+    margin: 0 1rem;
+  }
+}
+
+.patients_progress_wrapper input {
+  width: 40px !important;
+  outline: none !important;
+  border: none;
+  border-bottom: 2px solid #000;
+}
+
+.box {
+  display: inlineBlock;
+  margin: 30px auto 0 auto;
+  box-shadow: 0 5px 10px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0;
+}
+
+.calendar {
+  margin: 30px auto 20px auto;
+  box-shadow: 0 5px 10px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
+  border: none !important;
+  padding: 0;
+}
+
+abbr[title] {
+  text-decoration: none;
+}
+
+.cycle {
+  color: #8a92a6 !important;
+  font-weight: 500;
+}
+
+.navbar>.container,
+.navbar>.container-fluid,
+.navbar>.container-lg,
+.navbar>.container-md,
+.navbar>.container-sm,
+.navbar>.container-xl,
+.navbar>.container-xxl {
+  justify-content: center !important;
+  gap: 0.3rem;
+}
+
+.tracker_container h5 {
+  margin: 0;
+}
+
+.react-calendar__navigation {
+  background-color: #a8d6da;
+  border-top-right-radius: 9px;
+  border-top-left-radius: 9px;
+}
+
+.period_date p {
+  background-color: #a8d6da;
+  color: #fff;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  padding: 0.3rem 0.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.period_date {
+  padding-bottom: 1rem;
+}
+
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+  background-color: #a8d6da !important;
+  border-radius: 5px;
+}
+
+.react-calendar__tile--now {
+  background-color: #999999 !important;
+  border-radius: 5px;
+  color: #fff !important;
+}
+
+.cycle_dropdown {
+  border-color: #a8d6da !important;
+  color: #a8d6da !important;
+  border-width: 2px;
+  border-radius: 5px;
+  background-color: #fff !important;
+}
+
+.hiddenProgressEdit {
+  display: none !important;
+}
+
+.cardWidht {
+  width: 140px !important;
+}
+
+.disableInputs {
+  pointer-events: none !important;
+}

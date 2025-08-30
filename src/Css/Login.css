@@ -1,0 +1,294 @@
+.login_wrapper {
+  background-color: #f1fafa;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.login_container {
+  background-color: #ffffff;
+  border-radius: 12px;
+}
+
+.login_container .logo_div img {
+  width: 120px;
+  margin-bottom: 2rem;
+}
+
+.login_container .input_fields {
+  text-align: left;
+}
+
+.login_container .input_fields label {
+  font-size: 20px;
+  margin-bottom: 0.3rem;
+  font-weight: 450;
+}
+
+.login_container .input_fields input {
+  width: 100%;
+  height: 38px;
+  margin-bottom: 1rem;
+  font-size: 16px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.15) 1px 3px 10px !important;
+  background-color: #f2fcfc;
+  border-radius: 6px;
+  font-family: sans-serif;
+  padding: 0.6rem;
+}
+
+.login_container .login_btn a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.login_container .login_btn:hover {
+  background-color: #a8d6da;
+  padding: 0.5rem 0;
+  width: 120px;
+  margin-top: 1.5rem;
+}
+
+.login_password {
+  height: 38px;
+  position: relative;
+}
+
+.eye_btn_ {
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 7px;
+  right: 6px;
+}
+.invalid_user {
+  color: red;
+  font-weight: 400;
+  background-color: rgb(252, 219, 219);
+  text-align: left;
+  border-radius: 3px;
+  padding: 0.5rem;
+  font-size: 14px;
+  display: none;
+}
+
+.invalid_user_show {
+  display: block !important;
+}
+
+.null_user {
+  color: red;
+  font-weight: 400;
+  background-color: rgb(252, 219, 219);
+  text-align: left;
+  border-radius: 3px;
+  padding: 0.5rem;
+  font-size: 14px;
+  display: none;
+}
+
+.null_username {
+  color: red;
+  font-weight: 400;
+  background-color: rgb(252, 219, 219);
+  text-align: left;
+  border-radius: 3px;
+  padding: 0.5rem;
+  font-size: 14px;
+  display: none;
+}
+
+.null_password {
+  color: red;
+  font-weight: 400;
+  background-color: rgb(252, 219, 219);
+  text-align: left;
+  border-radius: 3px;
+  padding: 0.5rem;
+  font-size: 14px;
+  display: none;
+}
+
+/* ################################login css##################### */
+.login_wrapper {
+  /* background-color: #1c9797; */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.phnnmber {
+  text-align: start;
+}
+
+.inputNumber {
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  padding: 0.5rem 0.5rem;
+}
+
+.Lgin {
+  color: #34b883;
+  font-weight: 600;
+}
+
+.backgroundLeft {
+  height: 100%;
+  background-color: #34b883;
+}
+
+.backgroundRight {
+  height: 100%;
+  background-color: #ffffff;
+  position: relative;
+}
+
+.backgroundRight img {
+  position: absolute;
+  right: 10%;
+  top: 10%;
+}
+
+.login_container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #cfcbcb;
+  border-radius: 12px;
+}
+
+.login_container .logo_div img {
+  width: 120px;
+  margin-bottom: 2rem;
+}
+
+.login_container .input_fields {
+  text-align: left;
+}
+
+.login_container .input_fields label {
+  font-size: 20px;
+  margin-bottom: 0.3rem;
+  font-weight: 450;
+}
+
+.login_container .input_fields input {
+  width: 100%;
+  height: 38px;
+  margin-bottom: 1rem;
+  font-size: 16px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.15) 1px 3px 10px !important;
+  background-color: #f2fcfc;
+  border-radius: 6px;
+  padding: 0.6rem;
+}
+.login_container .login_btn {
+  background-color: #34b883;
+  color: white;
+  padding: 0.5rem 0;
+  width: 120px;
+  margin-top: 1.5rem;
+  border-radius: 2rem;
+}
+
+.login_container .login_btn a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.login_container .login_btn:hover {
+  background-color: #39b682;
+}
+
+.login_password {
+  height: 38px;
+  position: relative;
+}
+
+.eye_btn_ {
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 7px;
+  right: 6px;
+}
+
+.invalid_user {
+  color: red;
+  font-weight: 400;
+  background-color: rgb(252, 219, 219);
+  text-align: left;
+  border-radius: 3px;
+  padding: 0.5rem;
+  font-size: 14px;
+  display: none;
+}
+
+.invalid_user_show {
+  display: block !important;
+}
+
+.null_user {
+  color: red;
+  font-weight: 400;
+  background-color: rgb(252, 219, 219);
+  text-align: left;
+  border-radius: 3px;
+  padding: 0.5rem;
+  font-size: 14px;
+  display: none;
+}
+
+.null_username {
+  color: red;
+  font-weight: 400;
+  background-color: rgb(252, 219, 219);
+  text-align: left;
+  border-radius: 3px;
+  padding: 0.5rem;
+  font-size: 14px;
+  display: none;
+}
+
+.null_password {
+  color: red;
+  font-weight: 400;
+  background-color: rgb(252, 219, 219);
+  text-align: left;
+  border-radius: 3px;
+  padding: 0.5rem;
+  font-size: 14px;
+  display: none;
+}
+
+.loginHeadingText {
+  color: #34b883;
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: Nunito;
+}
+
+.login_container {
+  background-color: white;
+}
+
+.loginEmail {
+  padding: 0.375rem 0.75rem;
+  border: 1px solid #dcdcdc;
+}
+
+
+.modal-footer{
+  margin-bottom: 10px;
+}

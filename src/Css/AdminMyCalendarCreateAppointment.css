@@ -1,0 +1,617 @@
+.heading_btn_div {
+    display: flex;
+    align-items: center;
+}
+
+.heading_btn_div h3 {
+    margin: 0 1.5rem;
+}
+
+.month_name h5 {
+    margin: 0 1rem;
+}
+
+.month_name {
+    display: flex;
+    align-items: center;
+}
+
+.page_head_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* -------------------------------Calendar styling----------------------------------------- */
+.calendar_wrapper {
+    background-color: #A8D6DA;
+    padding: 1.5rem 1rem 2rem 1rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+
+.datepicker-date-day-Item {
+    margin-bottom: 0.6rem !important;
+    flex-direction: column-reverse !important;
+    height: fit-content !important;
+    padding: 0.5rem 0.3rem !important;
+    border-radius: 32px !important;
+    width: 35px !important;
+    border: none;
+    color: #fff;
+    border: none !important;
+}
+
+.datepicker-datelist-scrollable {
+    gap: 3rem;
+    padding: 0 0.5rem;
+}
+
+.date-day-Item-selected {
+    transform: scale(1.1);
+    width: 34px !important;
+    margin-top: 12px !important;
+    color: #000 !important;
+    background-color: #fff;
+}
+
+.datepicker-day-label {
+    font-weight: 100 !important;
+    font-size: 12px !important;
+}
+
+.datepicker-date-label {
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    margin-top: 0 !important;
+    background-color: #FFFAFA33 !important;
+    /* background-color: red !important; */
+    border-radius: 50%;
+    padding: 0.4rem 0.6rem;
+    color: #fff;
+}
+
+.date-day-Item-selected .datepicker-date-label {
+    margin-top: -8px !important;
+    color: #000;
+}
+
+.datepicker-strip {
+    margin-top: 0 !important;
+}
+
+.datepicker {
+    align-items: start !important;
+    gap: 0.5rem;
+    margin: 0 !important;
+}
+
+.scroll-head {
+    font-size: 16px !important;
+    height: auto !important;
+    width: auto !important;
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+    font-weight: 600 !important;
+    background-color: transparent !important;
+    border: none;
+    color: #fff;
+    display: none;
+}
+
+.blank-space-div {
+    margin-bottom: 12px !important;
+    display: none;
+}
+
+.datepicker-month-label {
+    display: none !important;
+}
+
+.datepicker-date-day-Item:hover {
+    background-color: transparent !important;
+    border: none !important;
+    color: #fff !important;
+    transform: scale(1.1) !important;
+}
+
+#container .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.datepicker .wrapper {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.datepicker-button-previous {
+    position: absolute;
+    bottom: -10px;
+    background-color: transparent !important;
+}
+
+.datepicker-button-previous {
+    background: url("../Assests/images/left_arrow.svg") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    text-indent: -9999px;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: none !important;
+}
+
+.datepicker-button-next {
+    background: url("../Assests/images/right_arrow.svg") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    text-indent: -9999px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.datepicker-button-next {
+    position: absolute;
+    bottom: -8px;
+    background-color: transparent !important;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #DF8FA0;
+}
+
+.months_flex {
+    display: flex;
+    justify-content: space-around;
+    color: #fff;
+    font-weight: 200;
+}
+
+.months_flex p {
+    margin: 0;
+}
+
+/* -------------------------------Calendar styling----------------------------------------- */
+
+.appointment_list_container .appointment_list_head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2rem 0;
+}
+
+.appointment_busy_avail_btns {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+/* .appointment_busy_avail_btns .busy_btn {
+    color: #A8D6DA;
+    border: 2px solid #A8D6DA;
+    font-weight: 500;
+    padding: 0.3rem 1.5rem;
+    background-color: #fff;
+    border-radius: 30px;
+}
+
+.appointment_busy_avail_btns .available_btn {
+    color: #fff;
+    font-weight: 500;
+    padding: 0.4rem 1rem;
+    background-color: #A8D6DA;
+    border-radius: 30px;
+    border: none;
+    box-shadow: 6px 6px 16px 0px #A8CFD273;
+} */
+
+/* Start CSS by Arsalan @13-07-2023 */
+
+.appointemntBtn {
+    font-weight: 500 !important;
+    ;
+    padding: 0.3rem 1.5rem !important;
+    ;
+    border-radius: 30px !important;
+    ;
+}
+
+.appointemntBtntSelected {
+    background-color: #A8D6DA !important;
+    color: #fff !important;
+    border: none !important;
+
+}
+
+.appointemntBtnNotSelected {
+    background-color: #fff !important;
+    color: #A8D6DA !important;
+    border: 1px solid #A8D6DA !important;
+}
+
+/* End CSS by Arsalan @13-07-2023 */
+
+.create_appointment_btn_super {
+    color: #fff;
+    font-weight: 500;
+    padding: 0.4rem 1rem;
+    background-color: #A8D6DA;
+    border-radius: 30px;
+    border: none;
+    box-shadow: 6px 6px 16px 0px #A8CFD273;
+}
+
+.appointment_list_item {
+    margin-bottom: 1.5rem;
+}
+
+.appointment_list_item_content {
+    border: 1px solid #8A92A6;
+    box-shadow: 0px 4px 15px 0px #157E6438;
+    border-radius: 7px;
+    width: 100%;
+    font-size: 15px;
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+}
+
+.appointment_list_item_content p {
+    margin: 0;
+}
+
+.appointment_list_item_content .time_slot {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.appointment_list_item_content .time_slot p {
+    font-size: 12px !important;
+}
+
+.appointment_list_item_content .time_slot img {
+    padding-top: 1px;
+}
+
+.appointment_list_item_content .time_status_div {
+    margin-top: 0.5rem;
+}
+
+.time_status_div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.time_status_div p {
+    font-size: 12px !important;
+}
+
+.appointment_disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.appointment_allign {
+    background-color: #39B682 !important;
+    color: #fff !important;
+    border: none !important;
+}
+
+.appointment_pending {
+    background-color: #F7AB40 !important;
+    color: #fff !important;
+    border: none !important;
+}
+
+.appointment_cancelled {
+    background-color: #FC5A5A !important;
+    color: #fff !important;
+    border: none !important;
+}
+
+.appointment_call_head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2rem 0;
+    /* margin-top: 4rem; */
+}
+
+.appointment_call_number_wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.appointment_call_number {
+    background-color: #A8D6DA;
+    border-radius: 50%;
+    padding: 0.5rem;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 4px 4px 10px 0px #A8CFD273;
+}
+
+.appointment_call_number p {
+    margin: 0;
+    font-size: 14px;
+    color: #fff;
+}
+
+.red_dot {
+    width: 5px;
+    height: 5px;
+    background-color: #FF0000;
+    border-radius: 50%;
+    margin-top: 0.3rem;
+    opacity: 0;
+}
+
+.red_dot.dot_visible {
+    opacity: 1;
+}
+
+.appointment_call_number_div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.appointment_call_number_div_disabled {
+    opacity: 0.5;
+    cursor: not-allowed !important;
+}
+
+.appointment_call_number_selected {
+    border: 1px solid #FFFFFF;
+}
+
+.appointment_call_number_upcoming {
+    border: 1px solid #A8D6DA;
+    background-color: #fff !important;
+}
+
+.appointment_call_number_upcoming p {
+    color: #A8D6DA !important;
+}
+
+.appointment_call_body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+}
+
+.appointment_patient_img {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+}
+
+.appointment_patient_img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50% !important;
+}
+
+.appointment_call_body_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.appointment_call_body_container h5 {
+    margin: 1.5rem auto 2.5rem auto;
+}
+
+.appointment_call_time_date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* gap: 1rem; */
+    border: 1px solid #EFEFEF;
+    border-radius: 7px;
+    padding: 0.7rem 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.appointment_call_time_date .appointment_call_date {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+}
+
+.appointment_call_time_date .appointment_call_date p {
+    margin: 0;
+}
+
+.patient_appointment_call_cancel_btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.patient_appointment_call_cancel_btns .appointment_call_btn {
+    box-shadow: 6px 6px 16px 0px #A8CFD273;
+    background-color: #7aefc0;
+    color: #fff;
+    font-weight: 500;
+    border: none;
+    width: 200px;
+    padding: 0.8rem 4rem;
+    border-radius: 30px;
+    font-family: sans-serif;
+}
+
+.patient_appointment_call_cancel_btns .appointment_cancel_btn {
+    box-shadow: 6px 6px 16px 0px #A8CFD273;
+    background-color: #fff;
+    color: #A8D6DA;
+    font-weight: 500;
+    border: 1px solid #A8D6DA;
+    padding: 0.7rem 3rem;
+    width: 200px;
+    border-radius: 30px;
+}
+
+.appointment_call_wrapper {
+    background-color: #F6FBFB;
+    padding: 2rem 0.5rem;
+}
+
+@media screen and (max-width: 620px) {
+    .appointment_list_container .appointment_list_head {
+        flex-direction: column;
+    }
+
+    .appointment_busy_avail_btns .available_btn,
+    .appointment_busy_avail_btns .busy_btn {
+        margin-top: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 405px) {
+
+    .appointment_busy_avail_btns .available_btn,
+    .appointment_busy_avail_btns .busy_btn {
+        font-size: 12px;
+        padding: 0.5rem 1rem;
+    }
+
+    .appointment_busy_avail_btns .available_btn {
+        padding: 0.6rem 1rem;
+    }
+}
+
+
+@media screen and (max-width: 991px) {
+    .appointment_container_row.row {
+        flex-direction: column-reverse !important;
+    }
+}
+
+.appointment_call_body_container input[type="date"] {
+    /* Custom styles */
+    width: fit-content;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+    flex-direction: row-reverse;
+    gap: 0.4rem;
+    outline: none;
+}
+
+/* Modify the appearance of the date picker */
+.appointment_call_body_container input[type="date"]::-webkit-calendar-picker-indicator {
+    /* Custom styles */
+    background-color: transparent;
+    padding: 4px;
+    border-radius: 4px;
+    color: #666;
+    width: 22px;
+    height: 22px;
+}
+
+/* Target the time input field */
+.appointment_call_body_container input[type="time"] {
+    /* Custom styles */
+    width: fit-content;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+    flex-direction: row-reverse;
+    gap: 0.4rem;
+    outline: none;
+}
+
+/* Modify the appearance of the time picker */
+.appointment_call_body_container input[type="time"]::-webkit-calendar-picker-indicator {
+    /* Custom styles */
+    background-color: transparent;
+    padding: 4px;
+    border-radius: 4px;
+    color: #666;
+    width: 25px;
+    height: 25px;
+}
+
+.create_appointment_input_div .create_appointment_input {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #0000001A;
+    padding: 0.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+}
+
+.create_appointment_input_div .create_appointment_input label {
+    color: #8A92A6 !important;
+    font-size: 14px;
+}
+
+.create_appointment_input_div .create_appointment_input input {
+    border: none;
+    font-size: 17px;
+    font-weight: 500;
+    height: 38px;
+}
+
+.create_appointment_input_div .create_appointment_input input:focus,
+.create_appointment_input_div .create_appointment_input input:focus-visible {
+    outline: none;
+}
+
+@media screen and (max-width: 991px) {
+    .patient_appointment_call_cancel_btns {
+        flex-direction: row;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .appointment_list_container .appointment_list_head {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+@media screen and (max-width: 620px) {
+
+    .appointment_busy_avail_btns .available_btn,
+    .appointment_busy_avail_btns .busy_btn,
+    .create_appointment_btn_super {
+        margin-top: 0.5rem;
+    }
+
+    .appointment_busy_avail_btns {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .patient_appointment_call_cancel_btns {
+        flex-direction: column;
+    }
+}

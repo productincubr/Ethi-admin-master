@@ -1,0 +1,19 @@
+.appointment_btn .btn {
+  background-color: #34b883;
+  border-radius: 2rem;
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0.6rem 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.appointment_btn .btn:hover {
+  background-color: #7aefc0;
+  color: #ffffff;
+}
+
+.appointment_btn .btn img {
+  margin-right: 0.5rem;
+}

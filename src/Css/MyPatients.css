@@ -1,0 +1,1182 @@
+.my_patients_dash {
+  margin-top: 1rem;
+}
+
+.my_patient_header {
+  display: flex;
+  align-items: center;
+}
+
+.health_concerns_selected p {
+  color: rgba(52, 184, 131, 1) !important;
+}
+
+.health_concerns_selected {
+  color: rgba(168, 214, 218, 0.2) !important;
+}
+
+.progres_cards_container div {
+  color: black !important;
+  border-radius: 0.5rem !important;
+}
+
+.create_diet_patient_wrapper {
+  background-color: rgba(246, 251, 251, 1);
+}
+
+.active_menu {
+  background-color: transparent;
+}
+
+.add_new_patient_btn button {
+  font-family: "Nunito", sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+
+  background-color: #34b883;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.8rem;
+}
+
+.crtNEWplan {
+  padding: 0.5rem 1.2rem !important;
+}
+
+.modalAddBtn {
+  min-width: 125px;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  background-color: #34b883;
+  color: white;
+}
+
+.checkBoxContainer input[type="checkbox"]:before {
+  content: "";
+  position: absolute;
+  right: 50%;
+
+  top: 50%;
+  width: 5px;
+  height: 10px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  margin: -1px -1px 0 -1px;
+  transform: rotate(45deg) translate(-50%, -50%);
+  z-index: 2;
+}
+
+.checkBoxContainer input[type="checkbox"] {
+  height: 0;
+  width: 0;
+  /* visibility: hidden; */
+}
+
+.checkBoxContainer input[type="checkbox"] {
+  position: relative;
+  border: 2px solid #34b883;
+  border-radius: 2px;
+  background: none;
+  cursor: pointer;
+  line-height: 0;
+  margin: 0 0.6em 0 0;
+  outline: 0;
+  padding: 0 !important;
+  vertical-align: text-top;
+  height: 15px;
+  width: 18px;
+  -webkit-appearance: none;
+  opacity: 0.5;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #34b883 !important;
+  color: #34b883 !important;
+  opacity: 1;
+}
+
+.modalCancelBtn {
+  min-width: 125px;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+  background-color: white;
+  border: 1px solid #34b883;
+  color: #34b883;
+}
+
+.modalAddBtn:hover {
+  background-color: #26996b;
+  color: white;
+}
+
+.modalCancelBtn:hover {
+  border: 1px solid #26996b;
+  color: #26996b;
+}
+
+.filterBtnContainer {
+  display: flex;
+  border: 1px solid #34b883;
+  border-radius: 0.8rem;
+}
+
+.patientAppointmentStatus {
+  align-self: flex-end;
+  margin: 0.7rem 1.5rem;
+}
+
+.modalContentBox {
+  padding: 2rem !important;
+}
+
+.modalContentBox .modal-body form .form-group {
+  margin-bottom: 1rem;
+}
+
+#patientName,
+#referredBy {
+  padding: 0.5rem 0;
+}
+
+.modalContentBox .modal-body form .form-group select {
+  border: none;
+  border: 1px solid #dee2e6 !important;
+  margin-right: 0.5rem;
+  padding: 0.5rem 0.5rem;
+}
+
+.modalContentBox .modal-body form .form-group .form-control {
+  border-radius: 0;
+}
+
+.modalContentBox .modal-header {
+  border-bottom: none;
+}
+
+.iconListContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2;
+}
+
+.iconListContainer button {
+  border: none;
+  background-color: transparent;
+}
+
+.iconListContainer img:hover {
+  transform: scale(0.9);
+}
+
+.patientAppointmentStatus button {
+  font-size: 12px;
+  color: white;
+  border: none;
+  padding: 0.2rem 0.8rem;
+  border-radius: 2rem;
+}
+
+.filterBtnContainer button {
+  color: #34b883;
+  font-family: "Nunito", sans-serif;
+  font-weight: 800;
+  padding: 0.7rem 1.5rem;
+  border-radius: 2rem;
+}
+
+.react-international-phone-input {
+  width: 100%;
+}
+
+.upcomingBtn {
+  background-color: #34b883;
+  color: white;
+}
+
+.call_btn_disabled {
+  cursor: not-allowed !important;
+  opacity: 0.6;
+}
+
+.completedBtn {
+  background-color: #0083fd !important;
+  color: white;
+}
+
+.pendingBtn {
+  background-color: #f7ab40 !important;
+  color: white;
+}
+
+.canceledBtn {
+  background-color: #fc5a5a !important;
+}
+
+.react-international-phone-input-container .react-international-phone-input {
+  padding: 0.375rem 0.75rem;
+  border-radius: 5px !important;
+}
+
+.react-international-phone-input-container .react-international-phone-country-selector-button {
+  border-radius: 0px !important;
+}
+
+.filterBtnContainer button:hover {
+  color: #26996b;
+}
+
+.add_new_patient_btn button img {
+  margin-right: 0.5rem;
+}
+
+.add_new_patient_btn button:hover {
+  background-color: #26996b;
+}
+
+.my_patients_dash_head_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.my_patients_dash_head_container .back_btn_heading {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.my_patients_dash_head_container .back_btn_heading h4 {
+  margin: 0;
+}
+
+.my_patients_list_container {
+  margin-top: 2rem;
+}
+
+.my_patients_list_container .my_patients_list_head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0;
+}
+
+.my_patients_list_container .my_patients_list_head .current_past_tabs {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 2px;
+}
+
+@media screen and (max-width: 500px) {
+  .my_patients_list_container .my_patients_list_head .current_past_tabs {
+    flex-direction: column;
+  }
+}
+
+.my_patients_list_container .my_patients_list_head .current_past_tabs .past_tab,
+.my_patients_list_container .my_patients_list_head .current_past_tabs .current_tab {
+  width: 190px;
+  padding: 0.8rem 1.8rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: #f8f8f8;
+  color: #77838f;
+  cursor: pointer;
+}
+
+.my_patients_list_container .my_patients_list_head .current_past_tabs .past_patient_list_tab,
+.my_patients_list_container .my_patients_list_head .current_past_tabs .active_patient_list_tab {
+  background-color: #34b883 !important;
+  color: #ffffff !important;
+}
+
+.my_patients_list_container .my_patients_list_head .current_past_tabs .past_tab h6 {
+  margin: 0;
+  text-align: center;
+}
+
+.my_patients_list_container .my_patients_list_head .current_past_tabs .current_tab h6 {
+  margin: 0;
+  text-align: center;
+}
+
+.my_patients_search_bar {
+  width: 100%;
+  position: relative;
+}
+
+.my_patients_search_bar1 {
+  width: 100%;
+  border: 2px solid rgba(168, 214, 218, 1) !important;
+  border-radius: 20px;
+}
+
+.my_patients_search_bar .serach_bar {
+  height: 40px;
+  width: 100%;
+  background-color: #f6fbfb;
+  padding: 0.2rem 1rem 0.2rem 3rem !important;
+  border-radius: 20px;
+  border: 1px solid #34b883 !important;
+}
+
+.my_patients_search_bar1 .serach_bar {
+  border: 2px #08d8e0;
+}
+
+.my_patients_search_bar .search_bar_icon {
+  position: absolute;
+  top: 12px;
+  left: 14px;
+}
+
+.my_patients_list_wrapper {
+  padding: 2rem 1.5rem;
+  background-color: #f6fbfb;
+}
+
+.my_patientslist_items {
+  margin-top: 2rem;
+}
+
+.my_patients_list_wrapper .my_patientslist_items ul {
+  list-style: none;
+  padding: 0;
+}
+
+.my_patients_list_wrapper .my_patientslist_items .my_patients_item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.my_patients_list_wrapper .my_patientslist_items .my_patients_item_left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.Petient_profile img {
+  border-radius: 50%;
+  height: 25vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.my_patients_item_left .my_patients_item_img img,
+.my_patients_item_left .my_patients_item_img {
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+}
+
+.my_patients_item_left .my_patients_item_text p {
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+.my_patients_item_left .my_patients_item_text h5 {
+  margin-bottom: 0.2rem;
+  color: #262626;
+  font-weight: 600;
+}
+
+.my_patients_item_right {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.green,
+.red,
+.yellow,
+.blue {
+  width: 20px;
+  height: 20px;
+  margin: auto;
+  display: block;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.blue {
+  background-color: #08d8e0;
+}
+
+.yellow {
+  background-color: #f7ab40;
+}
+
+.red {
+  background-color: #fc5a5a;
+}
+
+.green {
+  background-color: #39b682;
+}
+
+.my_patients_item_right .my_patients_cancel_btn {
+  border: 1px solid #a8d6da;
+  color: #a8d6da;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+}
+
+.my_patients_item_right .my_patients_call_btn {
+  background-color: #a8d6da;
+  color: #ffffff;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+}
+
+.my_patients_item_right .my_patients_call_btn img {
+  padding-bottom: 0.2rem;
+  margin-right: 0.3rem;
+}
+
+.my_patients_filter_container {
+  margin-top: 0.2rem;
+  padding-top: 1rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: #f6fbfb;
+  /* display: none; */
+}
+
+.my_patients_profile_head h4 {
+  text-align: center;
+}
+
+/* .my_patients_filter_options .filter_option_div {
+    display: flex;
+    align-items: center;
+}
+
+.my_patients_filter_options .filter_option_div_01,
+.my_patients_filter_options .filter_option_div {
+    margin: 1.5rem 0;
+}
+
+.my_patients_filter_options .filter_option_div_01 input,
+.my_patients_filter_options .filter_option_div input {
+    margin-right: 1rem;
+} */
+
+.filter_option_div_01,
+.filter_option_div_02 {
+  display: flex;
+  align-items: center;
+}
+
+/* .my_patients_filter_options input[type=checkbox] {
+    position: relative;
+    border: 2px solid #A8D6DA;
+    ;
+    border-radius: 2px;
+    background: none;
+    cursor: pointer;
+    line-height: 0;
+    margin: 0 .6em 0 0;
+    outline: 0;
+    padding: 0 !important;
+    vertical-align: text-top;
+    height: 23px;
+    width: 23px;
+    -webkit-appearance: none;
+    opacity: .5;
+}
+
+.my_patients_filter_options input[type=checkbox]:hover {
+    opacity: 1;
+}
+
+.my_patients_filter_options input[type=checkbox]:checked {
+    background-color: #A8D6DA;
+    ;
+    opacity: 1;
+}
+
+.my_patients_filter_options input[type=checkbox]:before {
+    content: '';
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    width: 6px;
+    height: 12px;
+    border: solid #FFF;
+    border-width: 0 2px 2px 0;
+    margin: -1px -1px 0 -1px;
+    transform: rotate(45deg) translate(-50%, -50%);
+    z-index: 2;
+} */
+
+/* @media screen and (max-width: 991px) {
+    .my_patients_dash_container .row {
+        flex-direction: column-reverse;
+    }
+} */
+
+.createDietPlanComment {
+  padding: 0.5rem 1rem;
+  background-color: white;
+  height: 25%;
+  margin: 1rem 0;
+  border-radius: 0.2rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.ageBox {
+  margin: 0rem 0.8rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  width: 180px;
+  min-height: 82px;
+  height: 100%;
+  background-color: white;
+}
+
+.ageBox span {
+  font-size: 22px;
+  border: none;
+  width: 100%;
+}
+
+.genderBox {
+  min-height: 82px;
+  height: 100%;
+  padding: 0.5rem 1rem;
+}
+
+.genderBox p {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(138, 146, 166, 1);
+  text-align: start;
+}
+
+.ageBox p {
+  margin: 0.1rem;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(138, 146, 166, 1);
+  margin-bottom: 0;
+}
+
+.createDietPlanComment textarea {
+  font-size: 14px;
+  font-weight: 400;
+  width: 100%;
+  border-bottom: none;
+  font-family: Nunito;
+}
+
+.createDietPlanComment textarea::placeholder {
+  color: rgba(138, 146, 166, 1);
+  font-family: Nunito;
+}
+
+@media screen and (max-width: 650px) {
+
+  .my_patients_list_container .my_patients_list_head,
+  .my_patients_list_wrapper .my_patientslist_items .my_patients_item {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .my_patients_list_wrapper .my_patientslist_items .my_patients_item_left {
+    margin-right: auto;
+  }
+
+  .my_patients_item_right {
+    flex-direction: row-reverse;
+  }
+}
+
+.create_diet_plan_body .delete_diet {
+  background-color: transparent !important;
+}
+
+.create_diet_plan_body {
+  background-color: #f6fbfb;
+  padding: 1rem;
+}
+
+.createDietPlanHeaderContainer {
+  display: flex;
+  align-items: center;
+  background-color: #f6fbfb;
+  margin-bottom: 0.5rem;
+  padding: 1rem 0rem;
+}
+
+.appointment_btn button:active,
+.appointment_btn button:focus,
+.appointment_btn button:focus-visible,
+.appointment_btn button:hover {
+  box-shadow: none !important;
+  background-color: #39b682 !important;
+  color: #ffffff !important;
+}
+
+.back_btn {
+  cursor: pointer !important;
+}
+
+.mypatients_cancel_btn_disabled {
+  color: rgb(255, 66, 66) !important;
+  border-color: rgb(255, 66, 66) !important;
+  cursor: not-allowed !important;
+  opacity: 0.3 !important;
+  font-size: 14px;
+  padding: 9px 1.2rem !important;
+}
+
+.my_patients_call_btn_disabled {
+  cursor: not-allowed !important;
+  opacity: 0.7;
+}
+
+.mypatients_cancel_btn_disabled2 {
+  border: 1px solid #a8d6da !important;
+  color: #a8d6da !important;
+  padding: 0.5rem 1.5rem !important;
+  border-radius: 20px !important;
+  cursor: not-allowed !important;
+  opacity: 0.8 !important;
+}
+
+/* ------------------------------------------------------------- */
+
+.my_patients_list_wrapper {
+  height: 700px;
+  overflow-y: auto;
+}
+
+.imgPList {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.imgPListWrapper {
+  align-items: center;
+  border-bottom: 1px solid;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.imgPListWrapperSelected {
+  background-color: #a8d6da;
+}
+
+.pHead {
+  font-size: 14px;
+}
+
+.pHeadWrapper {
+  height: 50vh;
+  overflow: auto;
+}
+
+.pDetailWrapper {
+  background-color: #f1fafa;
+  border-radius: 20px;
+}
+
+.userImgP {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+
+.detailHeader {
+  align-items: center;
+  justify-content: space-around;
+}
+
+.patiensPersonalDetails p {
+  margin-bottom: 0.5rem !important;
+  white-space: nowrap;
+}
+
+.AddressPTAg p {
+  white-space: pre-line !important;
+}
+
+.pDetailWrapper p {
+  margin-bottom: 0;
+}
+
+.docsUpload {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid;
+  padding: 10px;
+  align-items: center;
+}
+
+.docsUpload p:nth-child(2) {
+  font-size: 12px;
+}
+
+.listStciky {
+  position: sticky;
+  top: 100px;
+}
+
+#style-1::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #f5f5f5;
+}
+
+#style-1::-webkit-scrollbar {
+  width: 5px;
+  background-color: #f5f5f5;
+}
+
+#style-1::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #a8d6da;
+}
+
+.wrapperDet {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btnDet {
+  background-color: #a8d6da !important;
+  color: #000 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.imgDiet {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.dietTable tr td {
+  vertical-align: middle;
+}
+
+.tableHeight {
+  height: 500px;
+  overflow: auto;
+  width: 100%;
+}
+
+.tableHeight .table-striped>tbody>tr:nth-of-type(odd)>* {
+  background-color: #7AEFC0;
+}
+
+.userIdP {
+  margin-bottom: 0;
+  width: fit-content;
+  margin-left: auto;
+  border-radius: 100px;
+  font-size: 12px;
+  color: #fff;
+}
+
+.flexAppointDr {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flexAppointDr select {
+  width: 100%;
+}
+
+.flexAppointDr button {
+  background-color: #a8d6da !important;
+  color: #000 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.assmntBtn .btnDet {
+  height: 40px;
+}
+
+.assmntBtn {
+  align-items: center;
+}
+
+#doctorSelect {
+  border: 2px solid #a8d6da !important;
+  border-radius: 7px;
+  color: #a8d6da;
+  background-color: #f1fafa;
+  font-weight: 500;
+  outline: none !important;
+}
+
+.appointment_call_time_date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* gap: 1rem; */
+  border: 1px solid #efefef;
+  border-radius: 7px;
+  padding: 0.7rem 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.appointment_call_time_date_Ptn {
+  display: block !important;
+  border: none !important;
+}
+
+.appointment_call_time_date_Ptn p {
+  margin: 0;
+}
+
+.appointment_call_time_date_Ptn .appointment_call_date {
+  margin-bottom: 0.5rem;
+}
+
+.patient_appointment_call_cancel_btns2 .appointment_call_btn {
+  padding: 0.8rem 1rem !important;
+}
+
+.appointment_call_time_date_Ptn .appointment_call_date {
+  align-items: flex-start !important;
+}
+
+.appointment_call_time_date_Ptn .appointment_call_date img {
+  margin-top: 0.1rem !important;
+}
+
+.appointment_call_time_date .appointment_call_date {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+/* .appointment_call_body2 {
+    padding: 1.5rem 1rem !important;
+  } */
+
+.my_patients_filter_container {
+  background-color: #fff;
+}
+
+.appointment_call_body_container {
+  background-color: #f6fbfb;
+}
+
+.appointment_call_body_container2 {
+  margin-top: 0 !important;
+  padding: 1.5rem 0 !important;
+  width: 100%;
+}
+
+.appointment_call_time_date .appointment_call_date p {
+  margin: 100 !important;
+}
+
+/* popup css*/
+/* Styles for the popup */
+.popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.popup-content {
+  background-color: #fff;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+.pointToRememberBox {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.pointToRememberBox .ptrBox {
+  border-radius: 10px;
+  width: 50%;
+  padding: 1rem;
+  min-height: 200px;
+  background-color: #e7fbf3;
+  border-radius: 10px;
+}
+
+.pointToRememberBox .ptrBox h3 {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: Nunito;
+}
+
+.pointToRememberBox .supBox h3 {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: Nunito;
+}
+
+.pointToRememberBox .supBox {
+  width: 50%;
+  padding: 1rem;
+  min-height: 200px;
+  background-color: #e7fbf3;
+  border-radius: 10px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.patient_details {
+  border-radius: 10px;
+}
+
+/* Center the popup content */
+.popup-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.DietWeek {
+  background-color: #e7fbf3;
+  border-radius: 10px;
+  /* padding: 1rem; */
+}
+
+.DietWeek2 {
+  background-color: #e7fbf3;
+  /* height: 70%; */
+  border-radius: 10px;
+}
+
+.crtNewPln {
+  display: flex;
+  gap: 1rem;
+}
+
+.editNewplan {
+  background-color: #34b883;
+  color: white;
+}
+
+.Jainder {
+  margin-left: 24px;
+}
+
+.nutritionistName {
+  font-size: 20px;
+  font-weight: 500;
+  font-family: Nunito;
+}
+
+.sml {
+  font-size: 14px;
+  color: rgba(138, 146, 166, 1);
+  font-weight: 400;
+  font-family: Nunito;
+}
+
+.sml1 {
+  font-size: 22px;
+  color: rgb(0, 0, 0);
+}
+
+.DietplanWeeks {
+  margin: 1rem;
+}
+
+.nrcd {
+  padding-left: 1rem;
+}
+
+.HEads2 {
+  margin-bottom: 0 !important;
+}
+
+.HEads {
+  justify-content: space-between;
+  padding-top: 1rem;
+  align-items: center;
+  margin-bottom: 0px !important;
+}
+
+.mgin {
+  margin-top: 1rem !important;
+}
+
+.diet_time_and_meal_container {
+  padding: 1rem;
+}
+
+.diet_time_and_meal ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 2rem;
+}
+
+.diet_time_and_meal ul li p {
+  margin-bottom: 0;
+}
+
+.select_inputDietPlan {
+  background-color: white;
+}
+
+.create_diet_plan_wrapper {
+  overflow-x: auto;
+}
+
+.designImg img {
+  max-width: 100%;
+}
+
+.diet_time_and_meal ul li {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: Nunito;
+}
+
+.diet_time {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dietTm {
+  background-color: transparent !important;
+  align-items: start !important;
+}
+
+.diet_time h6 {
+  color: rgba(138, 146, 166, 1);
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  font-family: Nunito;
+}
+
+.diet_time p {
+  color: rgba(138, 146, 166, 1);
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 4px;
+  font-family: Nunito;
+}
+
+.rprt {
+  cursor: pointer;
+}
+
+.uplod {
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+  width: 20%;
+  background-color: white;
+  border: 1px solid #34b883;
+  color: #34b883;
+  cursor: pointer;
+}
+
+.clrFile {
+  color: #0083fd;
+}
+
+.statusBtn {
+  font-family: "Nunito",
+    sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  background-color: #34b883;
+
+  padding: 0.4rem;
+  border-radius: 0.8rem;
+  overflow: none;
+}
+
+.statuS button {
+  background-color: #34b883;
+}
+
+@media screen and (max-width: 576px) {
+  .cc {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .headSubs {
+    text-align: center;
+  }
+}
+
+.whIcon {
+  justify-content: flex-end !important;
+}
+
+.whIcon button {
+  border: none;
+}
+
+.diet_time .mealss input[type="text"],
+input[type="tel"],
+select,
+textarea {
+  padding-bottom: 0px;
+  border-bottom: none
+}
+
+
+
+/* Add these styles to your existing stylesheet or create a new one */
+#meal_time option,
+#mealDropdown2 option {
+  background-color: #34B883;
+  padding: 10px;
+  /* Set the desired text color */
+}
+
+#meal_time option,
+#mealDropdown2 option:hover {
+  color: #c75f23;
+  padding: 10px;
+  /* Set the desired text color */
+}
+
+.table-striped>tbody>tr:nth-of-type(odd)> {
+  background-color: #34B883 !important;
+}

@@ -1,0 +1,212 @@
+.my_staff_dash_container .leave_request_div {
+    margin: 1.5rem 0;
+}
+
+.my_staff_dash_container .leave_request_head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.my_staff_dash_container .leave_request_head p {
+    color: #A8D6DA !important; 
+    text-decoration: underline solid #A8D6DA 1px !important;
+    cursor: pointer !important;
+}
+
+.my_staff_list .my_patients_item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.my_staff_list .my_patients_item .my_patients_item_left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.my_staff_list ul {
+    list-style: none;
+    padding: 0 10px;
+}
+
+.my_staff_list ul li {
+    margin: 1.5rem 0;
+}
+
+.my_staff_list .my_patients_item .my_staff_approve_btn {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.my_staff_list .my_patients_item .my_staff_cancel_btn {
+    font-weight: 500;
+    font-size: 14px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.change_shift_wrapper {
+    margin-top: 3rem;
+}
+
+.shift_date_time_container {
+    margin-top: 2rem;
+}
+
+.change_shift_wrapper .change_shift_container .shift_date_container h5 {
+    margin: 1rem 0;
+}
+
+.css-dplwbx-MuiPickersCalendarHeader-label {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+}
+.css-12mkn7b-MuiButtonBase-root-MuiIconButton-root-MuiPickersCalendarHeader-switchViewButton {
+    display: none !important;
+}
+
+.css-1jsy6pn-MuiButtonBase-root-MuiPickersDay-root:not(.Mui-selected) {
+    background-color: #c5cad6 !important;
+    border: none !important;
+}
+
+.css-qa7bje-MuiButtonBase-root-MuiPickersDay-root.Mui-selected {
+    background-color: #A8D6DA !important;
+}
+
+.css-rhmlg1-MuiTypography-root-MuiDayCalendar-weekDayLabel {
+    font-weight: 600 !important;
+    color: rgba(0, 0, 0, 0.9) !important;
+    font-size: 14px !important;
+}
+
+.css-qa7bje-MuiButtonBase-root-MuiPickersDay-root {
+    font-weight: 500 !important;
+    color: rgba(0, 0, 0, 0.9) !important;
+    font-size: 14px !important;
+}
+
+.css-kg9q0s-MuiButtonBase-root-MuiIconButton-root-MuiPickersArrowSwitcher-button,
+.css-1nkg345-MuiButtonBase-root-MuiIconButton-root-MuiPickersArrowSwitcher-button {
+    color: #000 !important;
+}
+
+.time_shift_date_inputs {
+    width: 100%;
+}
+
+.start_time_input,
+.end_time_input {
+    width: 100%;
+    border: 1px solid #A8D6DA;
+    background-color: #ffffff;
+    padding: 0.5rem 0.5rem;
+    border-radius: 7px;
+    margin-bottom: 2rem;
+}
+
+.start_time_input p,
+.end_time_input p{
+    font-weight: 500;
+    font-size: 14px;
+    color: #8A92A6;
+    margin: 0;
+    margin-bottom: 0.3rem;
+}
+
+.start_time_input input,
+.end_time_input input{
+    width: 100%;
+    font-size: 18px;
+    font-weight: 500;
+    height: 40px;
+    outline: none;
+    border: none;
+    padding: 0 0.5rem;
+}
+
+.change_shift_wrapper .change_shift_container .shift_time_container h5 {
+    margin: 1rem 0;
+}
+
+.time_shift_date {
+    margin: 2.5rem auto;
+}
+
+.shift_week_days_container {
+    margin: 2rem auto;
+} 
+
+.shift_week_days_container .week_days_wrapper ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+}
+
+.shift_week_days_container .week_days_wrapper ul .day_name {
+    background-color: #ffffff;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #A8D6DA;
+    cursor: pointer;
+} 
+
+.shift_week_days_container .week_days_wrapper ul .day_name.weekday_selected {
+    background-color: #A8D6DA !important;
+    color: #ffffff !important;
+}
+
+.shift_week_days_container .week_days_wrapper ul .day_name h6 {
+    margin: 0;
+    font-weight: 600 !important;
+}
+
+.shift_week_days_container .weekdays_svae_cancel_btns {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    margin: 2rem 1rem;
+}
+
+.shift_week_days_container .weekdays_svae_cancel_btns .weekdays_cancel_btn {
+    border: 1px solid #A8D6DA;
+    color: #A8D6DA;
+    border-radius: 30px;
+    padding: 0.5rem 2rem;
+    background-color: #ffffff;
+}
+
+.shift_week_days_container .weekdays_svae_cancel_btns .weekdays_save_btn {
+    color: #ffffff;
+    border: none;
+    background-color: #A8D6DA;
+    border-radius: 30px;
+    padding: 0.6rem 2.8rem;
+}
+
+.doctors_ratings_eranings {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 2.5rem;
+}
+
+.doctors_patient_count,
+.doctors_earnings_count,
+.doctors_ratings_count {
+    text-align: center;
+} 
+
+.doctors_patient_count h4,
+.doctors_earnings_count h4,
+.doctors_ratings_count h4{
+    margin-bottom: 1rem;
+} 

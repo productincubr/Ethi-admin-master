@@ -1,0 +1,258 @@
+.web_footer {
+  background-color: #28293d;
+}
+
+.web_footer_wrapper .left_container .brand_img img {
+  width: 140px;
+}
+
+.web_footer_wrapper .left_container p {
+  color: #ffffff;
+  margin: 1rem 0 !important;
+}
+
+.web_footer_wrapper .left_container .social_media_links ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  gap: 1rem;
+}
+
+.web_footer_wrapper .left_container .social_media_links ul li img {
+  width: 39px;
+  height: 39px;
+}
+
+@media screen and (max-width: 800px) {
+  .web_footer_wrapper .left_container .social_media_links ul li img {
+    width: 35px !important;
+    height: 35px !important;
+  }
+}
+
+.web_footer_wrapper .center_container h4,
+.web_footer_wrapper .center_container p,
+.web_footer_wrapper .right_container h4,
+.web_footer_wrapper .right_container p {
+  color: #ffffff;
+}
+
+.web_footer_wrapper .right_container ul,
+.web_footer_wrapper .center_container ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.web_footer_wrapper .right_container ul li,
+.web_footer_wrapper .center_container ul li {
+  cursor: pointer;
+}
+
+.footer_end {
+  background-color: #1c1c28;
+}
+
+.footer_end_container p {
+  color: #ffffff;
+  text-align: center;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+@media screen and (max-width: 768px) {
+  .web_footer_container {
+    padding: 2rem 1rem 1rem 1rem !important;
+  }
+
+  .web_footer_wrapper .left_container .social_media_links ul {
+    gap: 0.7rem;
+  }
+
+  .web_footer_wrapper .left_container p {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .footer_end_container p {
+    letter-spacing: normal;
+  }
+
+  .web_footer_container {
+    padding: 2rem 0.6rem 1rem 0.6rem !important;
+  }
+
+  .left_container_wrapper {
+    margin-bottom: 1.5rem;
+  }
+
+  .web_footer_wrapper .center_container p,
+  .web_footer_wrapper .right_container p {
+    font-size: 15px;
+  }
+}
+
+.center_container ul li p a,
+.footer_end_container p a {
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+/* ------------------------------------------------------New Footer---------------------------------------------------------- */
+
+.footerContainer {
+  display: flex;
+  background-color: #55725d;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+}
+
+.formContainer {
+  justify-self: end;
+  margin: 5rem 5%;
+}
+
+.formContainer input {
+  width: 80%;
+  background-color: transparent;
+  color: #e2e2e2;
+  font-weight: 300;
+  padding: 11px 12px;
+  border: none;
+  border-bottom: 1px solid #e2e2e282;
+}
+
+.formContainer input::placeholder {
+  color: #d9d9d9a7;
+}
+
+.formContainer input:focus {
+  outline: none;
+}
+
+.formSubmitBtn {
+  margin-top: 2rem;
+  border: 2px solid #fff;
+  padding: 6px 30px;
+  border-radius: 10px;
+}
+
+.footerHeadingStyle {
+  color: #fff;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.contactUsBar::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -5px;
+  width: 5rem;
+  height: 3px;
+  background-color: #fff;
+  margin-top: 10px;
+}
+
+.ContactContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin: 5rem 5%;
+}
+
+.copyrightContainer {
+  text-align: center;
+  background-color: #8cb27f;
+  padding: 0.5rem 1rem;
+}
+
+.copyrightContainer span {
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.copyrightContainer a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.copyrightContainer a:hover {
+  color: #55725d;
+}
+
+.playStoreBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 400;
+  padding: 0.4rem 20px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  border-radius: 0.8rem;
+  border: 2px solid white;
+  transition: all 0.3s ease;
+}
+
+.playStoreBtn:hover {
+  background-color: #fff;
+  color: #55725d;
+}
+
+.playStoreBtn img {
+  width: 20px;
+}
+
+.btnsPlayApp {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.playStoreBtn span {
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 576px) {
+  .maginafterSm {
+    margin-top: 1.5rem;
+  }
+  .refund_return {
+    margin-top: 2rem !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .ContactContainer {
+    margin-top: 0 !important;
+  }
+}
+
+.loginBtnsToPanels {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.loginBtnsToPanels p,
+.loginBtnsToPanels a {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.loginBtnsToPanels .linktologin {
+  transition: all 0.3s ease;
+}
+
+.loginBtnsToPanels .linktologin:hover {
+  color: #8cb27f;
+}

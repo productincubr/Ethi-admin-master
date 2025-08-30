@@ -1,0 +1,13 @@
+.ftrEthi {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.HomeBTn {
+    min-width: 125px;
+    border-radius: 2rem;
+    background-color: #34b883 !important;
+    color: white !important;
+}

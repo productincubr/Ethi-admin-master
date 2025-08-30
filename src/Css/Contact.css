@@ -1,0 +1,72 @@
+.heading-section {
+  font-size: 40px;
+  color: #000;
+  font-weight: 700;
+}
+
+.text {
+  font-size: 16px;
+  color: #333;
+}
+
+iframe {
+  border-radius: 10px;
+}
+
+.dbox p {
+  margin-bottom: 0;
+}
+
+.dbox p span {
+  font-weight: 500;
+  color: #000;
+}
+
+.dbox p a {
+  color: #000;
+}
+
+.ftco-section {
+  padding: 4em 0;
+}
+
+.dbox .icon {
+  width: 48px;
+  height: 45px;
+  border-radius: 50%;
+  background: #a8d6da;
+}
+.dbox .icon span {
+  font-size: 20px;
+  color: #fff;
+}
+
+.leftContact {
+  background-color: #f6fbfb;
+}
+
+.wrapper {
+  width: 100%;
+}
+
+.dbox {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 50px !important;
+  padding: 0 20px;
+  gap: 1rem;
+}
+
+.dbox .text {
+  align-items: flex-end !important;
+  width: 100%;
+}
+
+.column {
+  padding: 70px;
+}
+
+.text a {
+  text-decoration: none;
+}
