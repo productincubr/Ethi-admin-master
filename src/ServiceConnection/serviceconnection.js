@@ -5,7 +5,7 @@ const publishableKey =
   "pk_test_51Nk04xSDhczxvMVA5WZg1tcIbzSgsgjOLZ4fmUl9bolkZxuop0CJDyk1QKoLwb3W3EtHQcOTnfGDuHk16alppuEE00J4EimJkA";
 
 let APL_LINK = "http://192.168.1.11:8080";
-APL_LINK = "https://api.ethi.health";
+APL_LINK = "https://ethi-backend-master-1.onrender.com";
 let local_server_link_react = APL_LINK + "/api/admin_link/";
 let local_server_web_react = APL_LINK + "/api/web_link/";
 

@@ -70,6 +70,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           {/* doctor panel */}
+          <Route path="/" element={<NewLoginPage />} />
           <Route path="/login" element={<NewLoginPage />} />
           <Route path="/doctorwelcomepage" element={<DoctorWelcomepage />} />
           <Route path="/doctor_chats" element={<LiveChatDoctor />} />
@@ -148,7 +149,7 @@ function App() {
           {/* work on this page */}
           {/* Super Admin panel */}
           {/* Ethi Website Pages */}
-          <Route path="/" element={<HomeNew />} />
+          {/*<Route path="/" element={<HomeNew />} />*/}
           <Route path="/return_&_refund_policy" element={<RefundandReturn />} />
           <Route path="/privacy_policy" element={<PrivacyPolicy />} />
           <Route path="/TermsofUse" element={<TermofUse />} />
