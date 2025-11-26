@@ -1,0 +1,239 @@
+/* FULL PAGE LAYOUT */
+.ethi-login-page {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background: #ffffff;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* LEFT SIDE */
+.ethi-login-left {
+  width: 50%;
+  flex: 1;
+  /* background: linear-gradient(180deg, #e7f9f7 0%, #bde8df 80%); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 60px;
+  line-height: 100px;
+}
+/* mujhe es image ki hight shi se nhi dikhai de rhi adhi image cut ho rhi h upr se thik kro esse. */
+.ethi-login-left .login-logo{
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  padding-top: 20px;
+  
+}
+
+.ethi-left-content {
+  max-width: 520px;
+}
+
+.ethi-main-logo {
+  width: 160px;
+  margin-bottom: 30px;
+}
+
+.ethi-title {
+  font-size: 42px;
+  font-weight: 700;
+  color: #1c6f63;
+  margin-bottom: 12px;
+}
+
+.ethi-subtitle {
+  font-size: 17px;
+  color: #27685c;
+  margin-bottom: 40px;
+}
+
+/* Fake avatar strip – replace with real images if you have */
+.ethi-avatar-row {
+  display: flex;
+  gap: 12px;
+}
+
+.avatar-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+/* RIGHT SIDE */
+.ethi-login-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  /* width: 100%; */
+  justify-content: center;
+  background: #ffffff;
+}
+
+.ethi-right-box {
+  width: 380px;
+  max-width: 100%;
+  border-radius: 18px;
+  border: 1px solid #e1e1e1;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  padding: 28px 30px 26px;
+}
+
+.ethi-login-heading {
+  font-size: 34px;
+  font-weight: 600;
+  color: #0da568;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* LABELS + INPUTS */
+.ethi-label {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  display: block;
+  color: #444;
+}
+
+/* react-international-phone wrapper */
+.ethi-phone-input {
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+.ethi-phone-input input {
+  width: 100%;
+  border-radius: 8px !important;
+  border: 1px solid #c7c7c7 !important;
+  /* padding: 8px 10px 8px 40px !important; */
+  padding-left: 9px !important;
+  margin-left: 10px !important;
+  font-size: 16px;
+}
+
+.ethi-phone-input input:focus {
+  outline: none;
+  border-color: #0da568 !important;
+}
+
+/* OR divider */
+.ethi-or-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 6px 0 12px;
+}
+
+.ethi-or-line {
+  flex: 1;
+  height: 1px;
+  background: #e0e0e0;
+}
+
+.ethi-or-text {
+  padding: 0 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #777;
+}
+
+/* Google row */
+.ethi-google-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.ethi-google-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.ethi-google-label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #444;
+}
+
+.ethi-input {
+  width: 10%;
+  border-radius: 8px;
+  border: 1px solid #c7c7c7;
+  /* padding: 9px 10px; */
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+.ethi-input[type="text"]{
+    border: 1px solid #c7c7c7;
+    width: 100%;
+    padding: 8px 10px;
+}
+
+.ethi-input:focus {
+  outline: none;
+  border-color: #0da568;
+}
+
+/* BUTTONS ROW */
+.ethi-btn-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.ethi-btn-back {
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: 1px solid #c7c7c7;
+  background: #ffffff;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.ethi-btn-continue {
+  padding: 8px 22px;
+  border-radius: 20px;
+  border: none;
+  background: #0da568;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.ethi-btn-continue:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+
+.ethi-btn-continue:hover:not(:disabled) {
+  background: #0b8a58;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .ethi-login-page {
+    flex-direction: column;
+  }
+
+  .ethi-login-left {
+    display: none;
+  }
+
+  .ethi-login-right {
+    flex: none;
+  }
+
+  .ethi-right-box {
+    width: 90%;
+    max-width: 380px;
+  }
+}

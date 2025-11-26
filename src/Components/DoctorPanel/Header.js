@@ -55,7 +55,7 @@ function Header({ leftTimeProp }) {
                 <div className='menu_bar'>
                     <div className='menu_bar_wrapper'>
                         <div className='menu_bar_container d-flex justify-content-around'>
-                            <Link to='/Welcomepage'>
+                            {/* <Link to='/Welcomepage'>
                                 <div className={`card text-center ${location.pathname === '/Welcomepage' ? 'active_menu' : ''}`}>
                                     <div className="card-body px-1 py-4 ">
                                         {location.pathname === '/Welcomepage' ? (
@@ -66,7 +66,21 @@ function Header({ leftTimeProp }) {
                                         <p className="card-text">Home</p>
                                     </div>
                                 </div>
+                            </Link> */}
+
+                            <Link to='/doctorwelcomepage'>
+                                <div className={`card text-center ${location.pathname === '/doctorwelcomepage' ? 'active_menu' : ''}`}>
+                                    <div className="card-body px-1 py-4 ">
+                                        {location.pathname === '/doctorwelcomepage' ? (
+                                            <img src={HomeSvgActive} alt="icon" />
+                                        ) : (
+                                            <img src={HomeSvg} alt="icon" />
+                                        )}
+                                        <p className="card-text">Home</p>
+                                    </div>
+                                </div>
                             </Link>
+
 
                             <Link to='/my_calendar'>
                                 <div className={`card text-center ${location.pathname === '/my_calendar' ? 'active_menu' : ''}`}>

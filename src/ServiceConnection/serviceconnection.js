@@ -4,12 +4,22 @@ const appauth_key = "cjR4Y3hGTHlpLzcwQ2pjUG9CNWFNUT09";
 const publishableKey =
   "pk_test_51Nk04xSDhczxvMVA5WZg1tcIbzSgsgjOLZ4fmUl9bolkZxuop0CJDyk1QKoLwb3W3EtHQcOTnfGDuHk16alppuEE00J4EimJkA";
 
-let APL_LINK = "http://192.168.1.11:8080";
-APL_LINK = "https://ethi-backend-master-1.onrender.com";
-let local_server_link_react = APL_LINK + "/api/admin_link/";
-let local_server_web_react = APL_LINK + "/api/web_link/";
+  // tum mobile device se same WiFi pe test karna chahte ho to ye use kar sakte ho:
+  // let APL_LINK = "http://192.168.1.11:8080";
+  
+  // Development (local) ke liye:
+  // let APL_LINK = "http://localhost:8080";
 
-let local_server_link_doctor_react = APL_LINK + "/api/doctor_link/";
+const APL_LINK = process.env.REACT_APP_API_URL || "http://localhost:8080";
+
+  // APL_LINK = "https://ethi-backend-master-1.onrender.com";
+  
+  let local_server_link_react = APL_LINK + "/api/admin_link/";
+  let local_server_web_react = APL_LINK + "/api/web_link/";
+  
+  // Agar doctor ki APIs bhi yahi file me define hoti hain, to ye bhi hona chahiye:
+  let local_server_link_doctor_react = APL_LINK + "/api/doctor_link/";
+  
 
 /**New doctor panel */
 
