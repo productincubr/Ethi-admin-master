@@ -1,0 +1,244 @@
+/**
+ * CustomerDashboard.css
+ * 
+ * Styling for the customer dashboard page
+ * Uses ETHI brand colors: #098f59 (primary green), #177b7d (teal), #a8d6da (light blue)
+ */
+
+/* Main container */
+.customer-dashboard-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #098f59 0%, #177b7d 100%);
+  padding: 20px;
+}
+
+/* Header section */
+.customer-header {
+  background: white;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+}
+
+.customer-header h1 {
+  margin: 0 !important;
+  color: #098f59;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+/* Logout button */
+.logout-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(231, 76, 60, 0.3);
+}
+
+.logout-btn:hover {
+  background: #c0392b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(231, 76, 60, 0.4);
+}
+
+/* Dashboard content wrapper */
+.dashboard-content {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Welcome section with user info */
+.welcome-section {
+  margin-bottom: 40px;
+  padding: 25px;
+  background: linear-gradient(135deg, #098f59 0%, #177b7d 100%);
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(9, 143, 89, 0.3);
+}
+
+.welcome-section h2 {
+  margin: 0 0 15px 0 !important;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.welcome-section .info-text {
+  margin: 8px 0 !important;
+  font-size: 16px;
+  opacity: 0.95;
+}
+
+/* Features grid layout */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+/* Individual feature cards */
+.feature-card {
+  padding: 25px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  background: white;
+  text-align: center;
+}
+
+.feature-card:hover {
+  border-color: #098f59;
+  box-shadow: 0 6px 20px rgba(9, 143, 89, 0.15);
+  transform: translateY(-5px);
+}
+
+.card-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.feature-card h3 {
+  margin: 15px 0 10px 0 !important;
+  color: #098f59;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.feature-card p {
+  color: #666;
+  margin: 0 0 20px 0 !important;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Feature action buttons */
+.feature-btn {
+  background: #a8d6da;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(168, 214, 218, 0.3);
+}
+
+.feature-btn:hover {
+  background: #39b682;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(57, 182, 130, 0.4);
+}
+
+/* Debug section for development */
+.debug-section {
+  margin-top: 30px;
+  padding: 20px;
+  background: #f9f9f9;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+.debug-section h3 {
+  margin: 0 0 15px 0 !important;
+  color: #666;
+  font-size: 18px;
+}
+
+.debug-content {
+  background: white;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 12px;
+  overflow-x: auto;
+  border: 1px solid #ddd;
+  color: #333;
+  margin: 0 !important;
+}
+
+/* Responsive design for tablets */
+@media (max-width: 768px) {
+  .customer-header h1 {
+    font-size: 22px;
+  }
+
+  .header-content {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .logout-btn {
+    width: 100%;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .dashboard-content {
+    padding: 20px;
+  }
+
+  .welcome-section h2 {
+    font-size: 24px;
+  }
+}
+
+/* Responsive design for mobile */
+@media (max-width: 480px) {
+  .customer-dashboard-container {
+    padding: 15px;
+  }
+
+  .customer-header h1 {
+    font-size: 20px;
+  }
+
+  .header-content {
+    padding: 15px 20px;
+  }
+
+  .dashboard-content {
+    padding: 15px;
+  }
+
+  .welcome-section {
+    padding: 20px;
+  }
+
+  .welcome-section h2 {
+    font-size: 22px;
+  }
+
+  .feature-card {
+    padding: 20px;
+  }
+
+  .card-icon {
+    font-size: 36px;
+  }
+
+  .feature-card h3 {
+    font-size: 18px;
+  }
+}
