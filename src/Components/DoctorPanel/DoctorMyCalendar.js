@@ -182,7 +182,7 @@ function DoctorMyCalendar() {
 
               <h5 className="hd">{monthNames[monthName]}</h5>
               <div className="right_btn">
-                {/* <img src={RightBtn} onClick={rightBtnHandler} alt="button" /> */}
+                <img src={RightBtn} onClick={rightBtnHandler} alt="button" />
               </div>
             </div>
           </div>

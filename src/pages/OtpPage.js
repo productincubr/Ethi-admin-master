@@ -1,3 +1,17 @@
+/**
+ * OtpPage Component
+ * 
+ * PURPOSE: OTP verification page for mobile-based authentication
+ * HANDLES: Customer, Doctor, and Admin users with mobile login
+ * 
+ * AUTHENTICATION FLOW:
+ * 1. User receives 6-digit OTP via SMS
+ * 2. User enters OTP in input boxes
+ * 3. Backend verifies OTP and returns user data
+ * 4. User type is detected from response fields (admin_type, doctor_profession, etc.)
+ * 5. Redirects to appropriate dashboard based on user role
+ */
+
 import React, { useRef, useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "../Css/OtpPage.css";
@@ -13,7 +27,7 @@ function OtpPage() {
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
   const inputRefs = useRef([]);
 
-  // page open -> first box focus
+  // Focus first input box when component mounts
   useEffect(() => {
     if (inputRefs.current[0]) {
       inputRefs.current[0].focus();
@@ -28,7 +42,7 @@ function OtpPage() {
     newOtp[index] = digit.slice(-1);
     setOtp(newOtp);
 
-    // next box focus
+    // Move focus to next input box
     if (index < 5 && inputRefs.current[index + 1]) {
       inputRefs.current[index + 1].focus();
     }
@@ -114,7 +128,7 @@ function OtpPage() {
 
       console.log("✅ OTP verified successfully!");
       
-      // STEP 1: Backend se user data mila
+      // STEP 1: Extract user data from backend response
       const userData = res.data.user_data || res.data.message;
       
       if (!userData) {
@@ -124,9 +138,9 @@ function OtpPage() {
 
       console.log("📋 User data received:", userData);
 
-      // STEP 2: User type detect karo aur accordingly data save karo
+      // STEP 2: Detect user type from response fields and save appropriate data
       
-      // Check 1: Admin hai?
+      // Check 1: Is user an Admin?
       if (userData.admin_type || userData.admin_email) {
         console.log("👨‍💼 User is ADMIN");
         
@@ -141,7 +155,7 @@ function OtpPage() {
           storeData("admin_image_single", userData.admin_image);
         }
         
-        // Doctor fields null karo
+        // Clear doctor fields to prevent role confusion
         storeData("doctor_id", "000000000000000000000000");
         storeData("doctor_email", null);
         
@@ -151,7 +165,7 @@ function OtpPage() {
         return;
       }
       
-      // Check 2: Doctor hai?
+      // Check 2: Is user a Doctor?
       if (userData.doctor_profession || userData.user_email) {
         console.log("👨‍⚕️ User is DOCTOR");
         
@@ -166,7 +180,7 @@ function OtpPage() {
           storeData("doctor_image_single", userData.doctor_image);
         }
         
-        // Admin fields null karo
+        // Clear admin fields to prevent role confusion
         storeData("admin_id", "000000000000000000000000");
         storeData("admin_email", null);
         
@@ -176,7 +190,7 @@ function OtpPage() {
         return;
       }
       
-      // Check 3: Customer hai (default)
+      // Check 3: User is a Customer (default case)
       console.log("👤 User is CUSTOMER");
       
       storeData("allow_access", "1");
@@ -189,7 +203,7 @@ function OtpPage() {
         storeData("customer_image", APL_LINK + "/ethi_user_image/" + userData.customer_image);
       }
       
-      // Admin aur Doctor fields null karo
+      // Clear both admin and doctor fields to prevent role confusion
       storeData("admin_id", "000000000000000000000000");
       storeData("admin_email", null);
       storeData("doctor_id", "000000000000000000000000");
@@ -236,17 +250,13 @@ function OtpPage() {
           ))}
         </div>
 
-        {/* <div className="otp_btns"> */}
-          <button className="otp-verify-btn" onClick={handleVerify}>
-            Verify & Continue
-          </button>
+        <button className="otp-verify-btn" onClick={handleVerify}>
+          Verify & Continue
+        </button>
 
-          <button className="otp-back-btn" onClick={() => navigate(-1)}>
-            Back
-          </button>
-
-        {/* </div> */}
-
+        <button className="otp-back-btn" onClick={() => navigate(-1)}>
+          Back
+        </button>
       </div>
     </div>
   );

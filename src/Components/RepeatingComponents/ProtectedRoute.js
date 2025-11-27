@@ -1,18 +1,20 @@
 /**
  * ProtectedRoute Component
  * 
- * PURPOSE: Ye component ensure karta hai ki koi unauthorized user protected pages access na kar sake
+ * PURPOSE: Higher-Order Component (HOC) to protect routes from unauthorized access
  * 
  * HOW IT WORKS:
- * 1. localStorage se user ka login status check karta hai
- * 2. User ka role (admin/doctor/customer) verify karta hai
- * 3. Agar authorized hai to page dikhata hai
- * 4. Agar unauthorized hai to login page par redirect kar deta hai
+ * 1. Checks user's login status from localStorage
+ * 2. Verifies user's role (admin/doctor/customer)
+ * 3. Allows access if authorized, otherwise redirects to login page
  * 
  * USAGE:
  * <ProtectedRoute allowedRole="admin">
  *   <AdminDashboard />
  * </ProtectedRoute>
+ * 
+ * @param {React.ReactNode} children - The component to render if authorized
+ * @param {string} allowedRole - Required role: "admin", "doctor", or "customer"
  */
 
 import React from "react";
@@ -23,15 +25,15 @@ const ProtectedRoute = ({ children, allowedRole }) => {
   // Step 1: Check if user is logged in
   const isLoggedIn = retrieveData("allow_access") === "1";
   
-  // Agar user login nahi hai, to login page par bhej do
+  // Redirect to login page if user is not authenticated
   if (!isLoggedIn) {
     console.log("❌ User not logged in - Redirecting to login");
     return <Navigate to="/" replace />;
   }
 
-  // Step 2: Check user role based on allowedRole
+  // Step 2: Verify user role based on allowedRole parameter
   if (allowedRole === "admin") {
-    // Admin check karo
+    // Verify admin credentials
     const adminEmail = retrieveData("admin_email");
     const adminId = retrieveData("admin_id");
     
@@ -43,7 +45,7 @@ const ProtectedRoute = ({ children, allowedRole }) => {
     console.log("✅ Admin access granted");
     
   } else if (allowedRole === "doctor") {
-    // Doctor check karo
+    // Verify doctor credentials
     const doctorEmail = retrieveData("doctor_email");
     const doctorId = retrieveData("doctor_id");
     
@@ -55,7 +57,7 @@ const ProtectedRoute = ({ children, allowedRole }) => {
     console.log("✅ Doctor access granted");
     
   } else if (allowedRole === "customer") {
-    // Customer check karo
+    // Verify customer credentials
     const customerId = retrieveData("customer_id");
     const mobile = retrieveData("customer_mobile");
     
@@ -67,7 +69,7 @@ const ProtectedRoute = ({ children, allowedRole }) => {
     console.log("✅ Customer access granted");
   }
 
-  // Step 3: Agar sab check pass ho gaya, to children render karo
+  // Step 3: If all checks pass, render the protected component
   return children;
 };
 

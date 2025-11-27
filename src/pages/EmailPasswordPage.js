@@ -1,14 +1,14 @@
 /**
  * EmailPasswordPage Component
  * 
- * PURPOSE: Email aur password se login karne ke liye
- * HANDLES: Admin, Doctor dono types ke users
+ * PURPOSE: Email and password based authentication page
+ * HANDLES: Both Admin and Doctor user types
  * 
- * FLOW:
- * 1. User email enter karta hai (EthiLoginPage se)
- * 2. Password enter karta hai
- * 3. Backend se verify hota hai (Admin ya Doctor)
- * 4. User type ke according redirect hota hai
+ * AUTHENTICATION FLOW:
+ * 1. User enters email (received from EthiLoginPage)
+ * 2. User enters password
+ * 3. Backend verifies credentials (Admin or Doctor)
+ * 4. Redirects user based on their role type
  */
 
 import React, { useState } from "react";
@@ -22,7 +22,7 @@ function EmailPasswordPage() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // EthiLoginPage se jo email bheja hai, woh state se aa raha hai
+  // Email received from EthiLoginPage via location state
   const emailFromLogin = location.state?.email || "";
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -39,12 +39,12 @@ function EmailPasswordPage() {
       setLoading(true);
       console.log("🔐 Login attempt for email:", emailFromLogin);
 
-      // FormData banana for backend
+      // Create FormData for backend API request
       const formData = new FormData();
       formData.append("useremail", emailFromLogin);
       formData.append("userpassword", trimmedPassword);
 
-      // STEP 1: Pehle Admin login try karo
+      // STEP 1: First attempt Admin login
       let response;
       let isAdmin = false;
       let isDoctor = false;
@@ -64,7 +64,7 @@ function EmailPasswordPage() {
         console.log("❌ Not an admin, trying doctor login...");
       }
 
-      // STEP 2: Agar Admin nahi hai, to Doctor try karo
+      // STEP 2: If not Admin, attempt Doctor login
       if (!isAdmin) {
         try {
           console.log("🔍 Checking if user is Doctor...");
@@ -87,7 +87,7 @@ function EmailPasswordPage() {
 
       setLoading(false);
 
-      // STEP 3: User type ke according data save karo aur redirect karo
+      // STEP 3: Save user data to localStorage and redirect based on user type
       if (isAdmin) {
         // ✅ ADMIN LOGIN SUCCESS
         console.log("🔍 Full Admin Response:", response.data);
@@ -117,8 +117,8 @@ function EmailPasswordPage() {
         
         console.log("💾 Saving admin data to localStorage...");
         
-        // Admin ka data localStorage mein save karo
-        // allow_access check karo - agar "1" nahi hai to login reject karo
+        // Save admin data to localStorage
+        // Verify allow_access flag - reject login if not "1"
         if (adminData.allow_access !== "1") {
           alert("Your account is not authorized. Please contact admin.");
           return;
@@ -132,7 +132,7 @@ function EmailPasswordPage() {
         storeData("admin_image_single", adminData.admin_image || "");
         storeData("admin_id", adminData._id || "");
         
-        // Doctor fields ko null set karo (to ensure no confusion)
+        // Clear doctor fields to prevent role confusion
         storeData("doctor_id", "000000000000000000000000");
         storeData("doctor_email", null);
         
@@ -165,7 +165,7 @@ function EmailPasswordPage() {
         
         console.log("💾 Saving doctor data to localStorage...");
         
-        // Doctor ka data localStorage mein save karo
+        // Save doctor data to localStorage
         storeData("allow_access", doctorData.allow_access || "1");
         storeData("doctor_email", doctorData.user_email || "");
         storeData("doctor_name", doctorData.doctor_name || "Doctor");
@@ -174,7 +174,7 @@ function EmailPasswordPage() {
         storeData("doctor_image_single", doctorData.doctor_image || "");
         storeData("doctor_id", doctorData._id || "");
         
-        // Admin fields ko null set karo
+        // Clear admin fields to prevent role confusion
         storeData("admin_id", "000000000000000000000000");
         storeData("admin_email", null);
         
@@ -193,13 +193,13 @@ function EmailPasswordPage() {
   return (
     <div className="otp-wrapper">
       <div className="otp-box">
-        {/* Heading exactly like Figma */}
+        {/* Page heading */}
         <h2 className="otp-title">Login</h2>
 
-        {/* Label exactly like Figma */}
+        {/* Instruction label */}
         <p className="otp-subtitle">Enter Gmail password</p>
 
-        {/* Single password input */}
+        {/* Password input field */}
         <input
           type="password"
           className="otp-password-input"
@@ -208,7 +208,7 @@ function EmailPasswordPage() {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        {/* Buttons row same as OTP screen */}
+        {/* Action buttons */}
         <div className="otp-btn-row">
           <button
             className="otp-back-btn"
@@ -233,17 +233,3 @@ function EmailPasswordPage() {
 }
 
 export default EmailPasswordPage;
-
-// Browser Console mein paste karo:
-
-// Test 1: Backend connectivity
-fetch('http://localhost:8080/api/admin_link/login_to_superadmin', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ 
-    useremail: 'admin@ethi.com', 
-    userpassword: 'admin123' 
-  })
-})
-.then(res => res.json())
-.then(data => console.log("Backend Response:", data));
