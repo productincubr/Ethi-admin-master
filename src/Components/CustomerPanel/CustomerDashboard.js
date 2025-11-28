@@ -119,7 +119,7 @@ function CustomerDashboard() {
         </div>
 
         {/* Development debug section - Remove in production */}
-        {process.env.NODE_ENV === 'development' && (
+        {/* {process.env.NODE_ENV === 'development' && (
           <div className="debug-section">
             <h3>🔧 Debug Information (Development Only)</h3>
             <pre className="debug-content">
@@ -132,7 +132,7 @@ function CustomerDashboard() {
               }, null, 2)}
             </pre>
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );
