@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../../Css/Login.css";
 import "../../Css/loading.css";
+import { useLocation } from "react-router-dom";
 import DoctorLoginNew from "./newLoginPage.js";
 import EthiGreen from "../../Assests/images/ethi_green.png";
 import {

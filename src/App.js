@@ -1,7 +1,25 @@
+/**
+ * ETHI Main App Component
+ * 
+ * PURPOSE: Main routing file with protected routes
+ * 
+ * PROTECTED ROUTES:
+ * - Admin routes → Only admins can access
+ * - Doctor routes → Only doctors can access
+ * - Customer routes → Only customers can access
+ * 
+ * PUBLIC ROUTES:
+ * - Login pages (EthiLoginPage, OtpPage, EmailPasswordPage)
+ * - Website pages (Home, Contact, etc.)
+ */
+
 import React from "react";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+
+// ⭐ IMPORT PROTECTED ROUTE COMPONENT
+import ProtectedRoute from "./Components/RepeatingComponents/ProtectedRoute";
 
 /** doctor Penal */
 import DoctorLogin from "./Components/DoctorPanel/DoctorLogin";
@@ -48,6 +66,7 @@ import PaymentCancel from "./Components/AdminPanel/PaymentCancel";
 //customer panel
 import CustomerVideoCall from "./Components/DoctorPanel/CustomerVideoCall";
 import CustomerPayment from "./Components/DoctorPanel/CustomerPayment";
+import CustomerDashboard from "./Components/CustomerPanel/CustomerDashboard";
 //customer panel
 
 // WebSite Pages
@@ -62,6 +81,10 @@ import HomeNew from "./Ethi-WebSite/components/HomeNew";
 import AdminMoreDetails from "./Components/AdminPanel/AdminMoreDetails";
 import ChatbotAi from "./Components/AdminPanel/LiveChatDoctor";
 import NewLoginPage from "./Components/DoctorPanel/newLoginPage";
+import LoginFirstPage from "./Components/DoctorPanel/LoginFirstPage";
+import EthiLoginPage from "./pages/EthiLoginPage";
+import OtpPage from "./pages/OtpPage";
+import EmailPasswordPage from "./pages/EmailPasswordPage";
 // WebSite Pages
 
 function App() {
@@ -69,102 +92,358 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          {/* doctor panel */}
-          <Route path="/" element={<NewLoginPage />} />
-          <Route path="/login" element={<NewLoginPage />} />
-          <Route path="/doctorwelcomepage" element={<DoctorWelcomepage />} />
-          <Route path="/doctor_chats" element={<LiveChatDoctor />} />
-          <Route
-            path="/doctor_feeds_and_post"
-            element={<DoctorFeedsAndPost />}
-          />
-          <Route
-            path="/doctor_video_call/:action"
-            element={<DoctorVideoCall />}
-          />
-          <Route
-            path="/doctor_admin_general_profile"
-            element={<DoctorGeneralProfile />}
-          />
-          {/* work on this page */}
-          <Route path="/doctor_my_calendar" element={<DoctorMyCalendar />} />
-          <Route path="/doctor_patients" element={<DoctorMyPatients />} />
-          <Route
-            path="/doctor_my_patients_create_diet_plan/:action"
-            element={<DoctorCreateDietPlan />}
-          />
-          <Route
-            path="/doctor_my_patients_show_diet_plan/:action"
-            element={<DoctorShowDietPlan />}
-          />
-          <Route
-            path="/DoctorPatientProfile/:action"
-            element={<DoctorPatientProfile />}
-          />
-          {/* DoctorpatientsForm page also */}
-          {/* PatientsProgessUpdate page also */}
-          {/* work on this page */}
-          {/* doctor panel */}
-          {/* Super Admin panel */}
+          {/* ========================================
+              PUBLIC ROUTES (No Authentication Required)
+              ======================================== */}
+          
+          {/* Main Login Page - Entry point */}
+          <Route path="/" element={<EthiLoginPage />} />
+          <Route path="/login" element={<EthiLoginPage />} />
+
+          {/* OTP + Email-Password Login Pages */}
+          <Route path="/otp" element={<OtpPage />} />
+          <Route path="/email-password" element={<EmailPasswordPage />} />
+          
+          {/* Old Login Pages (Deprecated - but kept for backward compatibility) */}
+          <Route path="/doctor-login" element={<DoctorLogin />} />
+          <Route path="/admin-login" element={<AdminLogin />} />
           <Route path="/superadmin" element={<AdminLogin />} />
-          <Route path="/AdminWelcomepage" element={<NutritionistHome />} />
-          <Route path="/AdminCalendar" element={<AdminCalendar />} />
-          <Route path="/AdminFeed" element={<AdminFeed />} />
-          <Route path="/AdminPanelSettings" element={<AdminPanelSettings />} />
-          <Route path="/NotificationsAdmin" element={<NotificationsAdmin />} />
-          <Route path="/StaffProfiles" element={<StaffProfiles />} />
-          <Route path="/AdminPanelQueries" element={<AdminPanelQueries />} />
-          <Route path="/AdminCorporateDetalis" element={<CorporateDetalis />} />
-          <Route path="/admin_chats" element={<LiveChatAdmin />} />
-          <Route path="/ChatbotAi" element={<ChatbotAi />} />
-          <Route
-            path="/admin_video_call/:action"
-            element={<AdminVideoCall />}
-          />
-          <Route path="/MyProfileAdmin" element={<MyProfileAdmin />} />
-          <Route path="/AdminStaffProfile" element={<AdminStaffProfile />} />
-          <Route path="/PatientProfile/:action" element={<PatientProfile />} />
-          <Route path="/payment" element={<Payment />} />
-          {/* <Route path="/payment/:customer_id" component={Payment} /> */}
-          {/* work on this page */}
-          <Route path="/AddDoctorProfile" element={<AddDoctorProfile />} />
-          <Route path="/ViewAdminPatient" element={<ViewAdminPatient />} />
-          <Route path="/LeaveRequest" element={<LeaveRequest />} />
-          <Route
-            path="/Admin_my_patients_show_diet_plan/:action"
-            element={<AdminShowDietPlan />}
-          />
-          {/* <Route path="/ViewPatient" element={<ViewPatient />} /> */}
-          <Route path="/MoreDetail/:action" element={<MoreDetail />} />
-          <Route
-            path="/AdminMoreDetail/:action"
-            element={<AdminMoreDetails />}
-          />
-          <Route path="/Chatpage" element={<Chatpage />} />
-          <Route path="/ChatpageDiet" element={<ChatpageDiet />} />
-          <Route path="/SuccessPayment" element={<Sucesspayment />} />
-          PaymentCancel
-          <Route path="/PaymentCancel" element={<PaymentCancel />} />
-          {/* <Route path="/doctor_chats/:action" element={<Chatpage />} /> */}
-          {/* work on this page */}
-          {/* Super Admin panel */}
-          {/* Ethi Website Pages */}
-          {/*<Route path="/" element={<HomeNew />} />*/}
+
+          {/* Website Public Pages */}
           <Route path="/return_&_refund_policy" element={<RefundandReturn />} />
           <Route path="/privacy_policy" element={<PrivacyPolicy />} />
           <Route path="/TermsofUse" element={<TermofUse />} />
           <Route path="/contact_us" element={<ContactUs />} />
-          {/* Ethi Website Pages */}
-          {/* Customer Call Page */}
-          <Route
-            path="/customervideocall/:action"
-            element={<CustomerVideoCall />}
+          
+          {/* Customer Video Call & Payment (Public - accessed via link) */}
+          <Route path="/customervideocall/:action" element={<CustomerVideoCall />} />
+          <Route path="/customerpayment/:action" element={<CustomerPayment />} />
+          
+          {/* Payment Success/Cancel Pages */}
+          <Route path="/SuccessPayment" element={<Sucesspayment />} />
+          <Route path="/PaymentCancel" element={<PaymentCancel />} />
+
+          {/* ========================================
+              CUSTOMER PROTECTED ROUTES
+              Only customers can access these pages
+              ======================================== */}
+          
+          <Route 
+            path="/customer-dashboard" 
+            element={
+              <ProtectedRoute allowedRole="customer">
+                <CustomerDashboard />
+              </ProtectedRoute>
+            } 
           />
-          <Route
-            path="/customerpayment/:action"
-            element={<CustomerPayment />}
+
+          {/* ========================================
+              DOCTOR PROTECTED ROUTES
+              Only doctors can access these pages
+              ======================================== */}
+          
+          <Route 
+            path="/doctorwelcomepage" 
+            element={
+              <ProtectedRoute allowedRole="doctor">
+                <DoctorWelcomepage />
+              </ProtectedRoute>
+            } 
           />
-          {/* Customer Call Page */}
+          
+          <Route 
+            path="/doctor_chats" 
+            element={
+              <ProtectedRoute allowedRole="doctor">
+                <LiveChatDoctor />
+              </ProtectedRoute>
+            } 
+          />
+          
+          <Route
+            path="/doctor_feeds_and_post"
+            element={
+              <ProtectedRoute allowedRole="doctor">
+                <DoctorFeedsAndPost />
+              </ProtectedRoute>
+            }
+          />
+          
+          <Route
+            path="/doctor_video_call/:action"
+            element={
+              <ProtectedRoute allowedRole="doctor">
+                <DoctorVideoCall />
+              </ProtectedRoute>
+            }
+          />
+          
+          <Route
+            path="/doctor_admin_general_profile"
+            element={
+              <ProtectedRoute allowedRole="doctor">
+                <DoctorGeneralProfile />
+              </ProtectedRoute>
+            }
+          />
+          
+          <Route 
+            path="/doctor_my_calendar" 
+            element={
+              <ProtectedRoute allowedRole="doctor">
+                <DoctorMyCalendar />
+              </ProtectedRoute>
+            } 
+          />
+          
+          <Route 
+            path="/doctor_patients" 
+            element={
+              <ProtectedRoute allowedRole="doctor">
+                <DoctorMyPatients />
+              </ProtectedRoute>
+            } 
+          />
+          
+          <Route
+            path="/doctor_my_patients_create_diet_plan/:action"
+            element={
+              <ProtectedRoute allowedRole="doctor">
+                <DoctorCreateDietPlan />
+              </ProtectedRoute>
+            }
+          />
+          
+          <Route
+            path="/doctor_my_patients_show_diet_plan/:action"
+            element={
+              <ProtectedRoute allowedRole="doctor">
+                <DoctorShowDietPlan />
+              </ProtectedRoute>
+            }
+          />
+          
+          <Route
+            path="/DoctorPatientProfile/:action"
+            element={
+              <ProtectedRoute allowedRole="doctor">
+                <DoctorPatientProfile />
+              </ProtectedRoute>
+            }
+          />
+          
+          <Route 
+            path="/MoreDetail/:action" 
+            element={
+              <ProtectedRoute allowedRole="doctor">
+                <MoreDetail />
+              </ProtectedRoute>
+            } 
+          />
+
+          {/* ========================================
+              ADMIN PROTECTED ROUTES
+              Only admins can access these pages
+              ======================================== */}
+          
+          <Route 
+            path="/AdminWelcomepage" 
+            element={
+              <ProtectedRoute allowedRole="admin">
+                <NutritionistHome />
+              </ProtectedRoute>
+            } 
+          />
+          
+          <Route 
+            path="/AdminCalendar" 
+            element={
+              <ProtectedRoute allowedRole="admin">
+                <AdminCalendar />
+              </ProtectedRoute>
+            } 
+          />
+          
+          <Route 
+            path="/AdminFeed" 
+            element={
+              <ProtectedRoute allowedRole="admin">
+                <AdminFeed />
+              </ProtectedRoute>
+            } 
+          />
+          
+          <Route 
+            path="/AdminPanelSettings" 
+            element={
+              <ProtectedRoute allowedRole="admin">
+                <AdminPanelSettings />
+              </ProtectedRoute>
+            } 
+          />
+          
+          <Route 
+            path="/NotificationsAdmin" 
+            element={
+              <ProtectedRoute allowedRole="admin">
+                <NotificationsAdmin />
+              </ProtectedRoute>
+            } 
+          />
+          
+          <Route 
+            path="/StaffProfiles" 
+            element={
+              <ProtectedRoute allowedRole="admin">
+                <StaffProfiles />
+              </ProtectedRoute>
+            } 
+          />
+          
+          <Route 
+            path="/AdminPanelQueries" 
+            element={
+              <ProtectedRoute allowedRole="admin">
+                <AdminPanelQueries />
+              </ProtectedRoute>
+            } 
+          />
+          
+          <Route 
+            path="/AdminCorporateDetalis" 
+            element={
+              <ProtectedRoute allowedRole="admin">
+                <CorporateDetalis />
+              </ProtectedRoute>
+            } 
+          />
+          
+          <Route 
+            path="/admin_chats" 
+            element={
+              <ProtectedRoute allowedRole="admin">
+                <LiveChatAdmin />
+              </ProtectedRoute>
+            } 
+          />
+          
+          <Route 
+            path="/ChatbotAi" 
+            element={
+              <ProtectedRoute allowedRole="admin">
+                <ChatbotAi />
+              </ProtectedRoute>
+            } 
+          />
+          
+          <Route
+            path="/admin_video_call/:action"
+            element={
+              <ProtectedRoute allowedRole="admin">
+                <AdminVideoCall />
+              </ProtectedRoute>
+            }
+          />
+          
+          <Route 
+            path="/MyProfileAdmin" 
+            element={
+              <ProtectedRoute allowedRole="admin">
+                <MyProfileAdmin />
+              </ProtectedRoute>
+            } 
+          />
+          
+          <Route 
+            path="/AdminStaffProfile" 
+            element={
+              <ProtectedRoute allowedRole="admin">
+                <AdminStaffProfile />
+              </ProtectedRoute>
+            } 
+          />
+          
+          <Route 
+            path="/PatientProfile/:action" 
+            element={
+              <ProtectedRoute allowedRole="admin">
+                <PatientProfile />
+              </ProtectedRoute>
+            } 
+          />
+          
+          <Route 
+            path="/payment" 
+            element={
+              <ProtectedRoute allowedRole="admin">
+                <Payment />
+              </ProtectedRoute>
+            } 
+          />
+          
+          <Route 
+            path="/AddDoctorProfile" 
+            element={
+              <ProtectedRoute allowedRole="admin">
+                <AddDoctorProfile />
+              </ProtectedRoute>
+            } 
+          />
+          
+          <Route 
+            path="/ViewAdminPatient" 
+            element={
+              <ProtectedRoute allowedRole="admin">
+                <ViewAdminPatient />
+              </ProtectedRoute>
+            } 
+          />
+          
+          <Route 
+            path="/LeaveRequest" 
+            element={
+              <ProtectedRoute allowedRole="admin">
+                <LeaveRequest />
+              </ProtectedRoute>
+            } 
+          />
+          
+          <Route
+            path="/Admin_my_patients_show_diet_plan/:action"
+            element={
+              <ProtectedRoute allowedRole="admin">
+                <AdminShowDietPlan />
+              </ProtectedRoute>
+            }
+          />
+          
+          <Route
+            path="/AdminMoreDetail/:action"
+            element={
+              <ProtectedRoute allowedRole="admin">
+                <AdminMoreDetails />
+              </ProtectedRoute>
+            }
+          />
+          
+          <Route 
+            path="/Chatpage" 
+            element={
+              <ProtectedRoute allowedRole="admin">
+                <Chatpage />
+              </ProtectedRoute>
+            } 
+          />
+          
+          <Route 
+            path="/ChatpageDiet" 
+            element={
+              <ProtectedRoute allowedRole="admin">
+                <ChatpageDiet />
+              </ProtectedRoute>
+            } 
+          />
+
         </Routes>
       </BrowserRouter>
     </div>
