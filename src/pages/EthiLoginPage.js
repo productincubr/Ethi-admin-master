@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import '../../Css/EthiLoginPage.css';
 import "../Css/EthiLoginPage.css";
 // import ethiLogo from "../../Assests/images/ethi_green.png";
@@ -7,15 +7,24 @@ import googleIcon from "../Assests/images/google-color-svgrepo-com.svg";
 import newLoginPage from "../Assests/images/newLoginPage.png";
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import { APL_LINK } from "../ServiceConnection/serviceconnection";
 
 function EthiLoginPage() {
     const navigate = useNavigate();
+    const location = useLocation();
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
     const [loading, setLoading] = useState(false);
+    const [selectedRole, setSelectedRole] = useState("");
+
+    // Check if role was passed from landing page
+    useEffect(() => {
+        if (location.state?.defaultRole) {
+            setSelectedRole(location.state.defaultRole);
+        }
+    }, [location]);
 
     // CONTINUE button click
     const handleContinue = async () => {
@@ -132,7 +141,6 @@ function EthiLoginPage() {
 
                     {/* CONTINUE BUTTON */}
                     <div className="ethi-btn-row">
-
                         <button
                             type="button"
                             className="ethi-btn-continue"
@@ -142,6 +150,20 @@ function EthiLoginPage() {
                             {loading ? "Sending..." : "Continue"}
                         </button>
                     </div>
+
+                    {/* ADMIN REGISTRATION LINK
+                    <div className="ethi-signup-section">
+                        <p className="ethi-signup-text">
+                            New admin?{" "}
+                            <button
+                                type="button"
+                                className="ethi-signup-link"
+                                onClick={() => navigate("/admin-register")}
+                            >
+                                Create Admin Account
+                            </button>
+                        </p>
+                    </div> */}
                 </div>
             </div>
         </div>

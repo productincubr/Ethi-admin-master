@@ -18,7 +18,7 @@
   padding-right: 60px;
   line-height: 100px;
 }
-/* mujhe es image ki hight shi se nhi dikhai de rhi adhi image cut ho rhi h upr se thik kro esse. */
+
 .ethi-login-left .login-logo{
   width: 100%;
   height: auto;
@@ -51,7 +51,6 @@
   margin-bottom: 40px;
 }
 
-/* Fake avatar strip – replace with real images if you have */
 .ethi-avatar-row {
   display: flex;
   gap: 12px;
@@ -216,6 +215,37 @@
 
 .ethi-btn-continue:hover:not(:disabled) {
   background: #0b8a58;
+}
+
+/* ADMIN SIGNUP SECTION */
+.ethi-signup-section {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid #e1e1e1;
+  text-align: center;
+}
+
+.ethi-signup-text {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+.ethi-signup-link {
+  background: none;
+  border: none;
+  color: #0da568;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0;
+  font-size: inherit;
+  transition: color 0.2s ease;
+}
+
+.ethi-signup-link:hover {
+  color: #0b8d56;
+  text-decoration: underline;
 }
 
 /* RESPONSIVE */
