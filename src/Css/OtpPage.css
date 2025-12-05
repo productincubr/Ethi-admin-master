@@ -71,21 +71,52 @@
 }
 
 /* Password single input (for Gmail password page) */
+.otp-password-container {
+  position: relative;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
 .otp-password-input {
   width: 100%;
   height: 46px;
   border-radius: 6px;
   border: 1px solid #d7d7d7;
-  padding: 0 12px;
+  padding: 0 45px 0 12px; /* Right padding for eye icon */
   font-size: 14px;
   outline: none;
   text-align: left;
-  margin-bottom: 40px;
+  box-sizing: border-box;
 }
 
 .otp-password-input:focus {
   border-color: #16a36a;
+  border-width: 2px;
+}
 
+.otp-password-eye-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 20px;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  user-select: none;
+  transition: color 0.2s ease;
+}
+
+.otp-password-eye-icon:hover {
+  color: #16a36a;
+}
+
+.otp-password-eye-icon:active {
+  transform: translateY(-50%) scale(0.95);
 }
 
 /* Buttons row shared by both pages */
@@ -153,10 +184,34 @@
     max-width: 280px;
   }
 
-
   .otp-input-box {
     width: 40px !important;
     height: 48px;
     font-size: 18px;
+  }
+
+  .otp-password-input {
+    height: 44px;
+    font-size: 13px;
+    padding: 0 40px 0 10px;
+  }
+
+  .otp-password-eye-icon {
+    right: 10px;
+    font-size: 18px;
+    width: 22px;
+    height: 22px;
+  }
+
+  .otp-btn-row {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .otp-back-btn,
+  .otp-verify-btn {
+    width: 100%;
+    min-width: unset;
   }
 }

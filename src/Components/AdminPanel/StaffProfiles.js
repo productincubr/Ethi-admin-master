@@ -7,6 +7,7 @@ import countries from "countries-list";
 import ProfileImgSample from "../../Assests/images/profile_sample.jpg";
 import AdminHeader from "./AdminHeader";
 import AddBtn from "../../Assests/images/add_svg.svg";
+import { toast } from "react-toastify";
 
 import {
   delete_master_data,
@@ -26,6 +27,7 @@ import {
   validatePassword,
   handleNumbersChange,
 } from "../../CommonJquery/CommonJquery.js";
+import { retrieveData } from "../../LocalConnection/LocalConnection.js"; // Import retrieveData
 import { Link } from "react-router-dom";
 let flag_for = 0;
 let for_status_final = 0;
@@ -54,74 +56,177 @@ function AddDoctorProfile() {
     master_data_get();
   }, []);
 
+  
   const handleSaveChangesdynamic = async (form_data, url_for_save) => {
     let vaild_data = check_vaild_save(form_data);
-
+  
     if (vaild_data) {
+      const adminId = retrieveData("admin_id");
+      const adminRole = retrieveData("admin_role");
+
+      if (!adminId) {
+        toast.error("Session expired. Please login again.", {
+          position: "top-right",
+          autoClose: 3000,
+        });
+        window.location.href = "/admin-login";
+        return;
+      }
+
+      // ✅ RBAC: ONLY super_admin can manage staff
+      if (adminRole !== "super_admin") {
+        toast.error("🚫 Only Super Admin can manage staff members.", {
+          position: "top-right",
+          autoClose: 4000,
+        });
+        return;
+      }
+  
       setShowLoader(true);
       let fd_from = combiled_form_data(form_data, dynaicimage);
+  
+      // IMPORTANT
+      fd_from.append("requester_admin_id", adminId);
+  
       await server_post_data(url_for_save, fd_from)
         .then((Response) => {
           setShowLoader(false);
           if (Response.data.error) {
-            alert(Response.data.message);
+            toast.error(Response.data.message || "Failed to save staff profile.", {
+              position: "top-right",
+              autoClose: 4000,
+            });
           } else {
+            const staffName = fd_from.get("admin_name") || "Staff";
+            const isUpdate = url_for_save === update_staff;
+
+            toast.success(
+              isUpdate
+                ? `${staffName}'s profile updated successfully! ✅`
+                : `${staffName} added to staff successfully! 👥`,
+              {
+                position: "top-right",
+                autoClose: 3000,
+              }
+            );
+
             master_data_get();
-            let form_data2 = "addStaff";
-            const closeButton = document.querySelector(
-              "#" + form_data2 + ' [data-dismiss="modal"]'
+  
+            const addFormId = "addStaff";
+            const editFormId = "editStaffProfile";
+  
+            const closeAddBtn = document.querySelector(
+              "#" + addFormId + ' [data-dismiss="modal"]'
             );
-            let form_data3 = "editStaffProfile";
-            const closeButton1 = document.querySelector(
-              "#" + form_data3 + ' [data-dismiss="modal"]'
+            const closeEditBtn = document.querySelector(
+              "#" + editFormId + ' [data-dismiss="modal"]'
             );
+  
             empty_form(form_data);
-            if (closeButton) {
-              closeButton.click();
-            }
-            if (closeButton1) {
-              closeButton1.click();
-            }
+            if (closeAddBtn) closeAddBtn.click();
+            if (closeEditBtn) closeEditBtn.click();
           }
         })
         .catch((error) => {
           setShowLoader(false);
+          console.error("Staff save error:", error);
+          toast.error(
+            error?.response?.data?.message ||
+              "Connection error. Please try again.",
+            {
+              position: "top-right",
+              autoClose: 4000,
+            }
+          );
         });
     }
   };
+  
 
   // Function to handle the delete operation for the selected goal
   const handleDeleteConfirmed = async (packageId) => {
     if (flag_for !== 0) {
+      const adminId = retrieveData("admin_id");
+      const adminRole = retrieveData("admin_role");
+
+      if (!adminId) {
+        toast.error("Session expired. Please login again.", {
+          position: "top-right",
+          autoClose: 3000,
+        });
+        window.location.href = "/admin-login";
+        return;
+      }
+
+      // ✅ RBAC: ONLY super_admin can delete staff
+      if (adminRole !== "super_admin") {
+        toast.error("🚫 Only Super Admin can remove staff members.", {
+          position: "top-right",
+          autoClose: 4000,
+        });
+        return;
+      }
+  
       setShowLoader(true);
       const fd = new FormData();
+  
       if (packageId === 0) {
         fd.append("id_for_delete", selectedGoalId);
       } else {
         fd.append("id_for_delete", packageId);
       }
-
+  
       fd.append("flag_for", flag_for);
       fd.append("for_status_final", for_status_final);
+      fd.append("requester_admin_id", adminId);
+  
       await server_post_data(delete_master_data, fd)
         .then((Response) => {
           setShowLoader(false);
           if (Response.data.error) {
-            alert(Response.data.message);
+            toast.error(Response.data.message || "Failed to remove staff member.", {
+              position: "top-right",
+              autoClose: 4000,
+            });
           } else {
-            setSelectedGoalId(null); // Clear the selectedGoalId to close the delete popup
+            toast.success("Staff member removed successfully! 🗑️", {
+              position: "top-right",
+              autoClose: 2500,
+            });
+            setSelectedGoalId(null);
             master_data_get();
           }
         })
         .catch((error) => {
           setShowLoader(false);
+          console.error("Staff delete error:", error);
+          toast.error(
+            error?.response?.data?.message ||
+              "Connection error. Please try again.",
+            {
+              position: "top-right",
+              autoClose: 4000,
+            }
+          );
         });
     }
   };
+  
 
   const master_data_get = async () => {
     setShowLoader(true);
+  
+    const adminId = retrieveData("admin_id");
+    if (!adminId) {
+      alert("Session expired. Please login again.");
+      setShowLoader(false);
+      window.location.href = "/admin-login";
+      return;
+    }
+  
     const fd = new FormData();
+    fd.append("requester_admin_id", adminId);
+  
     await server_post_data(get_all_admin, fd)
       .then((Response) => {
         if (Response.data.error) {
@@ -131,19 +236,20 @@ function AddDoctorProfile() {
           setdata_front_image(
             APL_LINK + Response.data.message.data_doctor_image
           );
+  
           const initialLikesplues = Response.data.message.data_admin.map(
-            (item) => {
-              return item.allow_access === "1";
-            }
+            (item) => item.allow_access === "1"
           );
           setToggleStates(initialLikesplues);
         }
         setShowLoader(false);
       })
       .catch((error) => {
+        console.error("Staff list error:", error);
         setShowLoader(false);
       });
   };
+  
 
   const [showMinimumLengthMessage, setshowMinimumLengthMessage] =
     useState(false);
@@ -161,7 +267,23 @@ function AddDoctorProfile() {
   }, []);
 
   const handleGetId = (index) => {
-    setselecteddataa(notificationdata[index]);
+    const adminRole = retrieveData("admin_role");
+    const selectedStaff = notificationdata[index];
+    
+    // ✅ Check if normal admin is trying to edit super admin
+    const isTargetSuperAdmin = selectedStaff.role === "super_admin" || 
+                               selectedStaff.admin_type === "super_admin" ||
+                               selectedStaff.is_super_admin === true;
+    
+    if (adminRole !== "super_admin" && isTargetSuperAdmin) {
+      toast.error("🚫 You cannot edit Super Admin profile. Only Super Admin can edit other admins.", {
+        position: "top-right",
+        autoClose: 4000,
+      });
+      return;
+    }
+    
+    setselecteddataa(selectedStaff);
   };
   const handleFileChangedynamic = (keyname) => (event) => {
     const file = event.target.files[0];
@@ -271,8 +393,27 @@ function AddDoctorProfile() {
                       </div>
                       <div className="create_diet_patient_details general_profile_nutritionist">
                         <div className="patient_details">
-                          <h3 className="fntNanitu">{item.admin_name}</h3>
-                          <p className="fntNanitu">{item.admin_type}</p>
+                          <h3 className="fntNanitu">
+                            {item.admin_name}
+                            {(item.role === "super_admin" || 
+                              item.admin_type === "super_admin" || 
+                              item.is_super_admin === true) && (
+                              <span style={{ 
+                                fontSize: "18px", 
+                                marginLeft: "8px",
+                                color: "#FFD700" 
+                              }}>
+                                👑
+                              </span>
+                            )}
+                          </h3>
+                          <p className="fntNanitu">
+                            {(item.role === "super_admin" || 
+                              item.admin_type === "super_admin" || 
+                              item.is_super_admin === true) 
+                              ? "Super Admin" 
+                              : item.admin_type || "Admin"}
+                          </p>
                           <p>
                             {" "}
                             {toggleStates[index] ? (

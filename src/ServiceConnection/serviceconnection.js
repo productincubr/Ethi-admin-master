@@ -107,6 +107,7 @@ const post_notification = local_server_link_react + "post_notification";
 const get_all_admin = local_server_link_react + "get_all_admin";
 const add_staff = local_server_link_react + "add_staff";
 const update_staff = local_server_link_react + "update_staff";
+const update_own_profile = local_server_link_react + "update_own_profile";
 const get_leaves = local_server_link_react + "get_leaves";
 const update_leaves = local_server_link_react + "update_leaves"; // leave accept/reject
 const ethi_query_master_get = local_server_link_react + "ethi_query_master_get";
@@ -130,6 +131,19 @@ const server_post_data = async (url_for, form_data) => {
     form_data = new FormData();
   }
   form_data.append("appauth_key", appauth_key);
+  
+  // ✅ Add JWT token to all API requests (if available)
+  const jwtToken = localStorage.getItem("jwt_token");
+  if (jwtToken && jwtToken !== "null") {
+    // Add as Authorization header for protected routes
+    const config = {
+      headers: {
+        'Authorization': `Bearer ${jwtToken}`
+      }
+    };
+    return axios.post(url_for, form_data, config);
+  }
+  
   return axios.post(url_for, form_data);
 };
 
@@ -164,6 +178,7 @@ export {
   get_all_doctor,
   get_all_admin,
   update_staff,
+  update_own_profile,
   update_doctor,
   get_quote,
   get_leaves,

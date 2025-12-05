@@ -5,8 +5,14 @@
  * 
  * HOW IT WORKS:
  * 1. Checks user's login status from localStorage
- * 2. Verifies user's role (admin/doctor/customer)
+ * 2. Verifies user's role (admin/doctor only - NO CUSTOMER PANEL)
  * 3. Allows access if authorized, otherwise redirects to login page
+ * 
+ * SUPPORTED ROLES:
+ * - admin: Regular admin users
+ * - doctor: Doctor users
+ * 
+ * NOTE: Customer access is via WhatsApp/mobile app only (native routes)
  * 
  * USAGE:
  * <ProtectedRoute allowedRole="admin">
@@ -14,7 +20,7 @@
  * </ProtectedRoute>
  * 
  * @param {React.ReactNode} children - The component to render if authorized
- * @param {string} allowedRole - Required role: "admin", "doctor", or "customer"
+ * @param {string} allowedRole - Required role: "admin" or "doctor"
  */
 
 import React from "react";
@@ -56,17 +62,6 @@ const ProtectedRoute = ({ children, allowedRole }) => {
     
     console.log("✅ Doctor access granted");
     
-  } else if (allowedRole === "customer") {
-    // Verify customer credentials
-    const customerId = retrieveData("customer_id");
-    const mobile = retrieveData("customer_mobile");
-    
-    if (!customerId || customerId === "null" || !mobile || mobile === "null") {
-      console.log("❌ Not a customer - Redirecting to login");
-      return <Navigate to="/" replace />;
-    }
-    
-    console.log("✅ Customer access granted");
   }
 
   // Step 3: If all checks pass, render the protected component

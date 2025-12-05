@@ -19,6 +19,7 @@ import {
   check_vaild_save,
   combiled_form_data,
 } from "../../CommonJquery/CommonJquery.js";
+import { toast } from "react-toastify";
 import $ from "jquery";
 function DoctorLogin() {
   const navigate = useNavigate();
@@ -39,11 +40,26 @@ function DoctorLogin() {
         .then((Response) => {
           setShowLoader(false);
           if (Response.data.error) {
-            alert(Response.data.message);
+            // ❌ Login failed - invalid credentials
+            toast.error(Response.data.message || "Invalid email or password.", {
+              position: "top-right",
+              autoClose: 4000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+            });
           } else {
             let Response_data = Response.data.message.data_doctor;
             let data_doctor_image = Response.data.message.data_doctor_image;
             if (Response_data.allow_access === "1") {
+              // ✅ Success toast with doctor name
+              toast.success(`Welcome, Dr. ${Response_data.doctor_name}! 🩺`, {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+              });
+
               storeData("allow_access", Response_data.allow_access);
               storeData("doctor_email", Response_data.user_email);
               storeData("doctor_name", Response_data.doctor_name);
@@ -54,18 +70,37 @@ function DoctorLogin() {
               );
               storeData("doctor_image_single", Response_data.doctor_image);
               storeData("doctor_id", Response_data._id);
+              
+              // Store role as DOCTOR for RBAC
+              storeData("user_role", "DOCTOR");
+              
               storeData("admin_id", "000000000000000000000000");
               storeData("admin_email", null);
               navigate("/doctorwelcomepage");
               $(".invalid_user").hide();
             } else {
-              alert("User is Invalid. Please try again.");
-              $(".invalid_user").Class(".invalid_user_show");
+              // Account disabled
+              toast.error("Your account is disabled. Please contact Admin.", {
+                position: "top-right",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+              });
+              $(".invalid_user").addClass("invalid_user_show");
             }
           }
         })
         .catch((error) => {
           setShowLoader(false);
+          // ❌ Network or server error
+          toast.error("Connection error. Please try again.", {
+            position: "top-right",
+            autoClose: 4000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+          });
           $(".invalid_user").show();
         });
     }

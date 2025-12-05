@@ -9,6 +9,7 @@ import ProfileImgSample from "../../Assests/images/profile_sample.jpg";
 import AddBtn from "../../Assests/images/add_svg.svg";
 
 import Select from "react-select";
+import { toast } from "react-toastify";
 import {
   delete_master_data,
   get_all_doctor,
@@ -26,6 +27,7 @@ import {
   handleAphabetsChange,
   handleNumbersChange,
 } from "../../CommonJquery/CommonJquery.js";
+import { retrieveData } from "../../LocalConnection/LocalConnection.js";
 let flag_for = 0;
 let for_status_final = 0;
 function StaffProfiles() {
@@ -57,14 +59,53 @@ function StaffProfiles() {
     let vaild_data = check_vaild_save(form_data);
 
     if (vaild_data) {
+      const adminId = retrieveData("admin_id");
+      const adminRole = retrieveData("admin_role");
+
+      if (!adminId) {
+        toast.error("Session expired. Please login again.", {
+          position: "top-right",
+          autoClose: 3000,
+        });
+        window.location.href = "/admin-login";
+        return;
+      }
+
+      // ✅ RBAC: Both super_admin and admin can add/edit doctors
+      if (adminRole !== "super_admin" && adminRole !== "admin") {
+        toast.error("You don't have permission to manage doctors.", {
+          position: "top-right",
+          autoClose: 4000,
+        });
+        return;
+      }
+
       setShowLoader(true);
       let fd_from = combiled_form_data(form_data, dynaicimage);
+      fd_from.append("requester_admin_id", adminId);
+
       await server_post_data(url_for_save, fd_from)
         .then((Response) => {
+          setShowLoader(false);
           if (Response.data.error) {
-            alert(Response.data.message);
+            toast.error(Response.data.message || "Failed to save doctor profile.", {
+              position: "top-right",
+              autoClose: 4000,
+            });
           } else {
-            console.log("123231", Response.data.message);
+            const doctorName = fd_from.get("doctor_name") || "Doctor";
+            const isUpdate = url_for_save === update_doctor;
+            
+            toast.success(
+              isUpdate 
+                ? `Dr. ${doctorName}'s profile updated successfully! ✅`
+                : `Dr. ${doctorName} added successfully! 🩺`,
+              {
+                position: "top-right",
+                autoClose: 3000,
+              }
+            );
+
             master_data_get();
             let form_data2 = "addStaff";
             const closeButton = document.querySelector(
@@ -85,6 +126,10 @@ function StaffProfiles() {
         })
         .catch((error) => {
           setShowLoader(false);
+          toast.error("Connection error. Please try again.", {
+            position: "top-right",
+            autoClose: 4000,
+          });
         });
     }
   };
@@ -92,6 +137,27 @@ function StaffProfiles() {
   // Function to handle the delete operation for the selected goal
   const handleDeleteConfirmed = async (packageId) => {
     if (flag_for !== 0) {
+      const adminId = retrieveData("admin_id");
+      const adminRole = retrieveData("admin_role");
+
+      if (!adminId) {
+        toast.error("Session expired. Please login again.", {
+          position: "top-right",
+          autoClose: 3000,
+        });
+        window.location.href = "/admin-login";
+        return;
+      }
+
+      // ✅ RBAC: Both super_admin and admin can delete doctors
+      if (adminRole !== "super_admin" && adminRole !== "admin") {
+        toast.error("You don't have permission to delete doctors.", {
+          position: "top-right",
+          autoClose: 4000,
+        });
+        return;
+      }
+
       setShowLoader(true);
       const fd = new FormData();
       if (packageId === 0) {
@@ -102,20 +168,32 @@ function StaffProfiles() {
 
       fd.append("flag_for", flag_for);
       fd.append("for_status_final", for_status_final);
+      fd.append("requester_admin_id", adminId);
+
       await server_post_data(delete_master_data, fd)
         .then((Response) => {
           setShowLoader(false);
           if (Response.data.error) {
-            alert(Response.data.message);
+            toast.error(Response.data.message || "Failed to delete doctor.", {
+              position: "top-right",
+              autoClose: 4000,
+            });
           } else {
-            setSelectedGoalId(null); // Clear the selectedGoalId to close the delete popup
-
+            toast.success("Doctor removed successfully! 🗑️", {
+              position: "top-right",
+              autoClose: 2500,
+            });
+            setSelectedGoalId(null);
             master_data_get();
           }
         })
         .catch((error) => {
           console.log(error);
           setShowLoader(false);
+          toast.error("Connection error. Please try again.", {
+            position: "top-right",
+            autoClose: 4000,
+          });
         });
     }
   };

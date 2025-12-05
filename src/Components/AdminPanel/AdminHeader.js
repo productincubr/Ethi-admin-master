@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "../../Css/Header.css";
 import "../../Css/loading.css";
+import { toast } from "react-toastify";
 import stuffImage from "../../Assests/images/users-three1.svg";
 import HomeSvgActive from "../../Assests/images/home_svg.svg";
 import addBtn from "../../Assests/images/add_svg.svg";
@@ -97,8 +98,16 @@ function AdminHeader() {
   };
 
   const logoutpopup = () => {
-    removeData();
-    navigate("/superadmin");
+    toast.success("Logged out successfully. See you soon! 👋", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+    });
+    setTimeout(() => {
+      removeData();
+      navigate("/superadmin");
+    }, 500);
   };
 
   const handleUpdate = () => {

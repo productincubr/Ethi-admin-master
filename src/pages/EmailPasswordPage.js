@@ -13,6 +13,8 @@
 
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import "../Css/OtpPage.css";
 import axios from "axios";
 import { APL_LINK } from "../ServiceConnection/serviceconnection";
@@ -26,12 +28,16 @@ function EmailPasswordPage() {
   const emailFromLogin = location.state?.email || "";
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleContinue = async () => {
     const trimmedPassword = password.trim();
 
     if (!trimmedPassword) {
-      alert("Please enter your password");
+      toast.error("Please enter your password", {
+        position: "top-right",
+        autoClose: 3000,
+      });
       return;
     }
 
@@ -80,7 +86,10 @@ function EmailPasswordPage() {
         } catch (err) {
           console.log("❌ Not a doctor either");
           setLoading(false);
-          alert("Invalid email or password");
+          toast.error("Invalid email or password", {
+            position: "top-right",
+            autoClose: 4000,
+          });
           return;
         }
       }
@@ -111,7 +120,10 @@ function EmailPasswordPage() {
         // Check if adminData exists
         if (!adminData) {
           console.error("❌ Admin data not found in response");
-          alert("Login failed. Please check your credentials.");
+          toast.error("Login failed. Please check your credentials.", {
+            position: "top-right",
+            autoClose: 4000,
+          });
           return;
         }
         
@@ -120,7 +132,10 @@ function EmailPasswordPage() {
         // Save admin data to localStorage
         // Verify allow_access flag - reject login if not "1"
         if (adminData.allow_access !== "1") {
-          alert("Your account is not authorized. Please contact admin.");
+          toast.error("Your account is not authorized. Please contact admin.", {
+            position: "top-right",
+            autoClose: 4000,
+          });
           return;
         }
         
@@ -132,13 +147,27 @@ function EmailPasswordPage() {
         storeData("admin_image_single", adminData.admin_image || "");
         storeData("admin_id", adminData._id || "");
         
+        // ✅ Save JWT token
+        if (response.data.message.token) {
+          storeData("jwt_token", response.data.message.token);
+          console.log("✅ JWT token saved");
+        }
+        
         // Clear doctor fields to prevent role confusion
         storeData("doctor_id", "000000000000000000000000");
         storeData("doctor_email", null);
         
         console.log("🎉 Admin login successful! Redirecting to admin dashboard...");
-        alert("Welcome Admin!");
-        navigate("/AdminWelcomepage");
+        
+        toast.success(`Welcome ${adminData.admin_name}! 👑`, {
+          position: "top-right",
+          autoClose: 2000,
+        });
+        
+        // Use hard redirect to ensure localStorage is saved before routing
+        setTimeout(() => {
+          window.location.href = "/AdminWelcomepage";
+        }, 500);
         
       } else if (isDoctor) {
         // ✅ DOCTOR LOGIN SUCCESS
@@ -159,34 +188,73 @@ function EmailPasswordPage() {
         // Check if doctorData exists
         if (!doctorData) {
           console.error("❌ Doctor data not found in response");
-          alert("Login failed. Please check your credentials.");
+          toast.error("Login failed. Please check your credentials.", {
+            position: "top-right",
+            autoClose: 4000,
+          });
           return;
         }
         
         console.log("💾 Saving doctor data to localStorage...");
+        console.log("🔍 Backend doctor email field:", doctorData.user_email);
+        console.log("🔍 All doctor fields:", Object.keys(doctorData));
         
-        // Save doctor data to localStorage
+        // Save doctor data to localStorage - use email from login page as fallback
+        const doctorEmail = doctorData.user_email || doctorData.email || doctorData.doctor_email || emailFromLogin;
+        console.log("✅ Final doctor email to save:", doctorEmail);
+        
         storeData("allow_access", doctorData.allow_access || "1");
-        storeData("doctor_email", doctorData.user_email || "");
+        storeData("doctor_email", doctorEmail);
         storeData("doctor_name", doctorData.doctor_name || "Doctor");
         storeData("doctor_profession", doctorData.doctor_profession || "Physician");
         storeData("doctor_image", doctorImage ? APL_LINK + doctorImage + doctorData.doctor_image : "");
         storeData("doctor_image_single", doctorData.doctor_image || "");
         storeData("doctor_id", doctorData._id || "");
         
+        // ✅ Save JWT token
+        if (response.data.message.token) {
+          storeData("jwt_token", response.data.message.token);
+          console.log("✅ JWT token saved");
+        }
+        
         // Clear admin fields to prevent role confusion
         storeData("admin_id", "000000000000000000000000");
         storeData("admin_email", null);
         
+        // ✅ VERIFY LOCALSTORAGE DATA SAVED
+        console.log("📊 LocalStorage Verification:");
+        console.log("  - allow_access:", localStorage.getItem("allow_access"));
+        console.log("  - doctor_email:", localStorage.getItem("doctor_email"));
+        console.log("  - doctor_id:", localStorage.getItem("doctor_id"));
+        console.log("  - doctor_name:", localStorage.getItem("doctor_name"));
+        
+        // ⚠️ CRITICAL CHECK: Ensure doctor_email is not empty
+        if (!localStorage.getItem("doctor_email") || localStorage.getItem("doctor_email") === "") {
+          console.error("❌ CRITICAL: doctor_email is empty! Using login email as backup...");
+          storeData("doctor_email", emailFromLogin);
+          console.log("✅ Backup email saved:", emailFromLogin);
+        }
+        
         console.log("🎉 Doctor login successful! Redirecting to doctor dashboard...");
-        alert("Welcome Doctor!");
-        navigate("/doctorwelcomepage");
+        
+        toast.success(`Welcome Dr. ${doctorData.doctor_name}! 🩺`, {
+          position: "top-right",
+          autoClose: 2000,
+        });
+        
+        // Use hard redirect to ensure localStorage is saved before routing
+        setTimeout(() => {
+          window.location.href = "/doctorwelcomepage";
+        }, 500);
       }
 
     } catch (err) {
       console.error("❌ EMAIL_PASSWORD_LOGIN_ERROR:", err);
       setLoading(false);
-      alert("Something went wrong. Please try again.");
+      toast.error("Something went wrong. Please try again.", {
+        position: "top-right",
+        autoClose: 4000,
+      });
     }
   };
 
@@ -199,14 +267,29 @@ function EmailPasswordPage() {
         {/* Instruction label */}
         <p className="otp-subtitle">Enter Gmail password</p>
 
-        {/* Password input field */}
-        <input
-          type="password"
-          className="otp-password-input"
-          placeholder="Enter your gmail password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        {/* Password input field with eye icon */}
+        <div className="otp-password-container">
+          <input
+            type={showPassword ? "text" : "password"}
+            className="otp-password-input"
+            placeholder="Enter your gmail password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            onKeyPress={(e) => {
+              if (e.key === 'Enter' && !loading) {
+                handleContinue();
+              }
+            }}
+          />
+          <span
+            className="otp-password-eye-icon"
+            onClick={() => setShowPassword(!showPassword)}
+            role="button"
+            aria-label={showPassword ? "Hide password" : "Show password"}
+          >
+            {showPassword ? <AiFillEyeInvisible /> : <AiFillEye />}
+          </span>
+        </div>
 
         {/* Action buttons */}
         <div className="otp-btn-row">

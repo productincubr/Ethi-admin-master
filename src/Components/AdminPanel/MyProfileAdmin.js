@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../../Css/AdminGeneralProfile.css";
 import AdminHeader from "./AdminHeader";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import GeneralSvg from "../../Assests//images/general_profile.svg";
 import General1Svg from "../../Assests//images/general_profile_white.svg";
@@ -22,6 +23,7 @@ import {
   APL_LINK,
   get_admin_by_single,
   update_staff,
+  update_own_profile,
   server_post_data,
 } from "../../ServiceConnection/serviceconnection.js";
 import {
@@ -93,17 +95,20 @@ function CorporateDetalis() {
             "admin_name",
             Response.data.message.data_admin[0].admin_name
           );
-          setRetriveDoctorImage(
-            APL_LINK +
-              Response.data.message.data_doctor_image +
-              Response.data.message.data_admin[0].admin_image
-          );
-          storeData(
-            "admin_image",
-            APL_LINK +
-              Response.data.message.data_doctor_image +
-              Response.data.message.data_admin[0].admin_image
-          );
+          
+          // 🔍 Debug: Check image URL construction
+          const imageFileName = Response.data.message.data_admin[0].admin_image;
+          const imagePath = Response.data.message.data_doctor_image;
+          const fullImageUrl = APL_LINK + imagePath + imageFileName;
+          
+          console.log("📸 Image Debug:");
+          console.log("  - APL_LINK:", APL_LINK);
+          console.log("  - Image Path:", imagePath);
+          console.log("  - Image Filename:", imageFileName);
+          console.log("  - Full URL:", fullImageUrl);
+          
+          setRetriveDoctorImage(fullImageUrl);
+          storeData("admin_image", fullImageUrl);
         }
         setShowLoader(false);
       })
@@ -147,22 +152,35 @@ function CorporateDetalis() {
       setShowLoader(true);
       let fd_from = combiled_form_data(form_data, dynaicimage);
       fd_from.append("admin_id", retriveDoctorId);
+      // ✅ CRITICAL: Send requester_admin_id for authentication
+      fd_from.append("requester_admin_id", retriveDoctorId);
       await server_post_data(url_for_save, fd_from)
         .then((Response) => {
           setShowLoader(false);
           if (Response.data.error) {
-            alert(Response.data.message);
+            toast.error(Response.data.message || "Failed to update profile.", {
+              position: "top-right",
+              autoClose: 4000,
+            });
           } else {
-            alert(Response.data.message);
+            toast.success(Response.data.message || "Profile updated successfully! 👤", {
+              position: "top-right",
+              autoClose: 3000,
+            });
             empty_form(form_data);
+            // ✅ Refresh profile data to show updated image
             master_data_feeds(retriveDoctorId);
           }
         })
         .catch((error) => {
           setShowLoader(false);
+          toast.error("An error occurred while updating profile.", {
+            position: "top-right",
+            autoClose: 4000,
+          });
         });
     }
-  };
+  };  
 
   const RectangularCard = ({ title, description }) => (
     <div className="card mb-4">
@@ -190,8 +208,16 @@ function CorporateDetalis() {
   };
   const logoutpopup = () => {
     setShowLogoutModal(false);
-    removeData();
-    navigate("/login");
+    toast.success("Logged out successfully. See you soon! 👋", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+    });
+    setTimeout(() => {
+      removeData();
+      navigate("/login");
+    }, 500);
   };
   return (
     <div className="container-xl create_diet_plan general_profile">
@@ -456,7 +482,7 @@ function CorporateDetalis() {
                               onClick={() =>
                                 handleSaveChangesdynamic(
                                   "form_data_profile",
-                                  update_staff
+                                  update_own_profile
                                 )
                               }
                             >

@@ -40,6 +40,7 @@ import DoctorPatientProfile from "./Components/DoctorPanel/DoctorPatientProfile"
 
 // Admin Panel
 import AdminLogin from "./Components/AdminPanel/AdminLogin";
+import AdminRegister from "./Components/AdminPanel/AdminRegister";
 import AdminCalendar from "./Components/AdminPanel/AdminCalendar";
 import AdminFeed from "./Components/AdminPanel/AdminFeed";
 import ViewAdminPatient from "./Components/AdminPanel/ViewAdminPatient";
@@ -66,11 +67,11 @@ import PaymentCancel from "./Components/AdminPanel/PaymentCancel";
 //customer panel
 import CustomerVideoCall from "./Components/DoctorPanel/CustomerVideoCall";
 import CustomerPayment from "./Components/DoctorPanel/CustomerPayment";
-import CustomerDashboard from "./Components/CustomerPanel/CustomerDashboard";
 //customer panel
 
 // WebSite Pages
 import HomePage from "./Ethi-WebSite/components/Home";
+import LandingPage from "./Ethi-WebSite/components/LandingPage";
 import ContactUs from "./Ethi-WebSite/components/ContactUs";
 import RefundandReturn from "./Ethi-WebSite/components/RefundandReturn";
 import PrivacyPolicy from "./Ethi-WebSite/components/PrivacyPolicy";
@@ -82,9 +83,13 @@ import AdminMoreDetails from "./Components/AdminPanel/AdminMoreDetails";
 import ChatbotAi from "./Components/AdminPanel/LiveChatDoctor";
 import NewLoginPage from "./Components/DoctorPanel/newLoginPage";
 import LoginFirstPage from "./Components/DoctorPanel/LoginFirstPage";
-import EthiLoginPage from "./pages/EthiLoginPage";
 import OtpPage from "./pages/OtpPage";
 import EmailPasswordPage from "./pages/EmailPasswordPage";
+import EthiLoginPage from "./pages/EthiLoginPage";
+
+// import EthiLoginPage from "./FirebaseConnection/pages/EthiLoginPage";
+// import OtpPage from "./FirebaseConnection/pages/OtpPage";
+// import EmailPasswordPage from "./FirebaseConnection/pages/EmailPasswordPage";
 // WebSite Pages
 
 function App() {
@@ -96,9 +101,15 @@ function App() {
               PUBLIC ROUTES (No Authentication Required)
               ======================================== */}
           
-          {/* Main Login Page - Entry point */}
-          <Route path="/" element={<EthiLoginPage />} />
+          {/* Main Entry Point - Modern Landing Page */}
+          <Route path="/" element={<LandingPage />} />
+          {/* <Route path="/home" element={<HomeNew />} /> */}
+          
+          {/* Login Pages */}
           <Route path="/login" element={<EthiLoginPage />} />
+
+          {/* Admin Registration - Quick registration for new admins */}
+          <Route path="/admin-register" element={<AdminRegister />} />
 
           {/* OTP + Email-Password Login Pages */}
           <Route path="/otp" element={<OtpPage />} />
@@ -122,20 +133,6 @@ function App() {
           {/* Payment Success/Cancel Pages */}
           <Route path="/SuccessPayment" element={<Sucesspayment />} />
           <Route path="/PaymentCancel" element={<PaymentCancel />} />
-
-          {/* ========================================
-              CUSTOMER PROTECTED ROUTES
-              Only customers can access these pages
-              ======================================== */}
-          
-          <Route 
-            path="/customer-dashboard" 
-            element={
-              <ProtectedRoute allowedRole="customer">
-                <CustomerDashboard />
-              </ProtectedRoute>
-            } 
-          />
 
           {/* ========================================
               DOCTOR PROTECTED ROUTES

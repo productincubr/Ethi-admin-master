@@ -563,21 +563,47 @@ textarea:focus {
   margin-right: 10px;
 }
 
-.Accbtn {
-  background-color: #34b883;
-  border: none;
-  font-family: "Nunito", sans-serif;
-  font-weight: 800;
-  font-size: 14px;
-  border-radius: 0.8rem;
+/* ACCOUNT Button Styling - Override Bootstrap defaults */
+.Accbtn.btn-secondary,
+.btn.Accbtn,
+button.Accbtn {
+  background-color: #34b883 !important;
+  border: none !important;
+  font-family: "Nunito", sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 14px !important;
+  border-radius: 0.8rem !important;
+  color: #ffffff !important;
+  /* Override Bootstrap's btn-secondary variables */
+  --bs-btn-bg: #34b883 !important;
+  --bs-btn-border-color: #34b883 !important;
+  --bs-btn-color: #fff !important;
 }
 
-.Accbtn:hover {
-  background-color: #26996b;
-  border: none;
-  font-family: "Nunito", sans-serif;
-  font-weight: 800;
-  font-size: 14px;
+.Accbtn.btn-secondary:hover,
+.btn.Accbtn:hover,
+button.Accbtn:hover {
+  background-color: #26996b !important;
+  border: none !important;
+  font-family: "Nunito", sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 14px !important;
+  color: #ffffff !important;
+  /* Override Bootstrap hover styles */
+  --bs-btn-hover-bg: #26996b !important;
+  --bs-btn-hover-border-color: #26996b !important;
+  --bs-btn-hover-color: #fff !important;
+}
+
+/* Ensure button is always visible (not transparent) */
+.Accbtn.btn-secondary:focus,
+.Accbtn.btn-secondary:active,
+.btn.Accbtn:focus,
+.btn.Accbtn:active {
+  background-color: #26996b !important;
+  border-color: #26996b !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 0 0.2rem rgba(52, 184, 131, 0.5) !important;
 }
 
 /* ------------------------------------------------------------------------------------------------------------- */
