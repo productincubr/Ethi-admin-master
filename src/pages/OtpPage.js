@@ -209,9 +209,11 @@ function OtpPage() {
       storeData("doctor_id", "000000000000000000000000");
       storeData("doctor_email", null);
       
-      console.log("🎉 Customer login successful! Redirecting...");
-      alert("Welcome Customer!");
-      navigate("/customer-dashboard");
+      // console.log("🎉 Customer login successful! Redirecting...");
+      // alert("Welcome Customer!");
+      
+      // ✅ FIXED: Redirect to home page instead of non-existent customer dashboard
+      navigate("/");
       
     } catch (err) {
       console.error(

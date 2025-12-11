@@ -62,12 +62,51 @@ function EmailPasswordPage() {
           formData
         );
         
+        console.log("📥 Admin login response:", response.data);
+        
         if (!response.data.error) {
           isAdmin = true;
           console.log("✅ User is Admin");
+        } else {
+          // Backend returned error
+          console.log("❌ Admin login error:", response.data.message);
+          console.log("🔍 Pending flag:", response.data.pending);
+          
+          // Check if user is pending approval
+          if (response.data.pending === true) {
+            setLoading(false);
+            toast.warning(response.data.message || "Your account is pending approval. Please wait for owner approval.", {
+              position: "top-right",
+              autoClose: 6000,
+            });
+            return;
+          }
+          
+          // Check for disabled account
+          if (response.data.message && response.data.message.toLowerCase().includes("disabled")) {
+            setLoading(false);
+            toast.error(response.data.message, {
+              position: "top-right",
+              autoClose: 5000,
+            });
+            return;
+          }
+          
+          // If admin login failed but not pending, try doctor login
+          console.log("❌ Admin login failed, will try doctor...");
         }
       } catch (err) {
-        console.log("❌ Not an admin, trying doctor login...");
+        console.log("❌ Admin API error:", err);
+        
+        // Check if error response indicates pending approval
+        if (err.response?.data?.pending === true) {
+          setLoading(false);
+          toast.warning(err.response.data.message || "Your account is pending approval. Please wait for owner approval.", {
+            position: "top-right",
+            autoClose: 6000,
+          });
+          return;
+        }
       }
 
       // STEP 2: If not Admin, attempt Doctor login
@@ -79,12 +118,46 @@ function EmailPasswordPage() {
             formData
           );
           
+          console.log("📥 Doctor login response:", response.data);
+          
           if (!response.data.error) {
             isDoctor = true;
             console.log("✅ User is Doctor");
+          } else {
+            // Backend returned error
+            console.log("❌ Doctor login error:", response.data.message);
+            
+            // Check if user is pending approval
+            if (response.data.pending === true) {
+              setLoading(false);
+              toast.warning(response.data.message || "Your account is pending approval. Please wait for owner approval.", {
+                position: "top-right",
+                autoClose: 6000,
+              });
+              return;
+            }
+            
+            // Neither admin nor doctor - invalid credentials
+            setLoading(false);
+            toast.error("Invalid email or password", {
+              position: "top-right",
+              autoClose: 4000,
+            });
+            return;
           }
         } catch (err) {
-          console.log("❌ Not a doctor either");
+          console.log("❌ Doctor API error:", err);
+          
+          // Check if error response indicates pending approval
+          if (err.response?.data?.pending === true) {
+            setLoading(false);
+            toast.warning(err.response.data.message || "Your account is pending approval. Please wait for owner approval.", {
+              position: "top-right",
+              autoClose: 6000,
+            });
+            return;
+          }
+          
           setLoading(false);
           toast.error("Invalid email or password", {
             position: "top-right",
