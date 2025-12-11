@@ -121,13 +121,14 @@
 .register-form {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 12px;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
     gap: 6px;
+    margin-bottom: 0;
 }
 
 .form-label {
@@ -188,37 +189,106 @@
 
 .password-toggle-btn {
     position: absolute;
-    right: 10px;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: rgba(243, 244, 246, 0.8);
-    border-radius: 999px;
-    border: 1px solid rgba(209, 213, 219, 0.8);
+    background: transparent;
+    border: none;
     cursor: pointer;
-    font-size: 17px;
-    padding: 4px 7px;
-    opacity: 0.8;
-    transition: background 0.18s ease, opacity 0.18s ease,
-        transform 0.12s ease, box-shadow 0.18s ease;
+    padding: 6px;
+    color: #6b7280;
+    transition: color 0.2s ease;
+    z-index: 10;
 }
 
 .password-toggle-btn:hover {
-    opacity: 1;
-    background: #f3faf7;
-    box-shadow: 0 0 0 2px rgba(13, 165, 104, 0.16);
-    transform: translateY(-1px);
+    color: #0da568;
 }
 
 .password-toggle-btn svg {
-    width: 17px;
-    height: 17px;
+    width: 18px;
+    height: 18px;
 }
 
 .password-hint {
     font-size: 11.5px;
     color: #6b7280;
     margin-top: 4px;
+}
+
+/* =========== LOGO UPLOAD =========== */
+
+.logo-upload-wrapper {
+    width: 100%;
+}
+
+.logo-input-hidden {
+    display: none;
+}
+
+.logo-upload-btn {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    border: 2px dashed #d1d5db;
+    border-radius: 10px;
+    background: #f9fafb;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.logo-upload-btn:hover {
+    border-color: #0da568;
+    background: #f0fdf4;
+}
+
+.upload-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: #6b7280;
+}
+
+.upload-placeholder svg {
+    color: #9ca3af;
+}
+
+.upload-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.upload-hint {
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+.logo-preview-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-preview {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 8px;
+    background: white;
+    padding: 10px;
+}
+
+.change-logo-text {
+    font-size: 13px;
+    color: #0da568;
+    font-weight: 600;
 }
 
 /* =========== ERROR TEXT =========== */
@@ -345,6 +415,51 @@
 
 .link-btn:hover::after {
     transform: scaleX(1);
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.link-text {
+    color: #0da568;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.link-text:hover {
+    color: #0b8d56;
+}
+
+.submit-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #dfc818 0%, #cea11a 100%);
+    color: white;
+    border: none;
+    outline: none;
+    padding: 14px 24px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(13, 165, 104, 0.3);
+}
+
+.submit-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(13, 165, 104, 0.4);
+}
+
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 /* =========== RESPONSIVE =========== */

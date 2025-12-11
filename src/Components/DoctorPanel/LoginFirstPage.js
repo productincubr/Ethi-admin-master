@@ -84,6 +84,16 @@ function LoginFirstPage() {
             Continue
           </button>
 
+          {/* Sign Up Link */}
+          <div className="signup-section">
+            <p className="signup-text">
+              Don't have an account?{" "}
+              <span onClick={() => navigate("/sign-up")} className="signup-link">
+                Sign Up
+              </span>
+            </p>
+          </div>
+
           <p className="bottom-info">
             By continuing, you agree to our Terms & Privacy Policy.
           </p>

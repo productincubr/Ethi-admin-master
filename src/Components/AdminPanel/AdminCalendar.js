@@ -41,6 +41,16 @@ function AdminCalendar() {
   const [upcomingAppointImage, setUpcomingAppointImage] = useState();
   const [selecteddate, setselecteddate] = useState("");
   const [isClicked, setIsClicked] = useState(false);
+  
+  // Consultation categories
+  const CONSULTATION_CATEGORIES = [
+    { value: "initial", label: "Initial Consultation" },
+    { value: "followup", label: "Follow-up Consultation" },
+    { value: "emergency", label: "Emergency" },
+    { value: "diet_planning", label: "Diet Planning" },
+    { value: "progress_review", label: "Progress Review" },
+    { value: "health_checkup", label: "Health Checkup" },
+  ];
   /*shubham jain codeing */
 
   const master_data_get = async (retrievedDoctorId, date_for_data) => {
@@ -375,7 +385,7 @@ function AdminCalendar() {
                           </div>
                           <div className="create_appointment_input_div">
                             <div className="create_appointment_input">
-                              <label>New Patient</label>
+                              <label>New Patient Name *</label>
                               <input
                                 type="text"
                                 id="user_customer_mobile_name"
@@ -383,10 +393,12 @@ function AdminCalendar() {
                                 maxLength={70}
                                 onInput={handleAphabetsChange}
                                 className="trio_mendate"
+                                placeholder="Enter patient name"
+                                required
                               />
                             </div>
                             <div className="create_appointment_input">
-                              <label>Phone No.</label>
+                              <label>Phone No. *</label>
                               <input
                                 type="text"
                                 maxLength={10}
@@ -394,6 +406,55 @@ function AdminCalendar() {
                                 className="trio_mendate"
                                 id="user_customer_mobile_no"
                                 name="user_customer_mobile_no"
+                                placeholder="10-digit mobile"
+                                required
+                              />
+                            </div>
+                          </div>
+                          <div className="create_appointment_input_div">
+                            <div className="create_appointment_input">
+                              <label>Consultation Type *</label>
+                              <select
+                                id="category"
+                                name="category"
+                                className="trio_mendate"
+                                required
+                                defaultValue=""
+                              >
+                                <option value="" disabled>
+                                  Select consultation type
+                                </option>
+                                {CONSULTATION_CATEGORIES.map((cat) => (
+                                  <option key={cat.value} value={cat.value}>
+                                    {cat.label}
+                                  </option>
+                                ))}
+                              </select>
+                            </div>
+                            <div className="create_appointment_input">
+                              <label>Appointment Type</label>
+                              <select
+                                id="occurrence"
+                                name="occurrence"
+                                className="trio_mendate"
+                                defaultValue="one_time"
+                              >
+                                <option value="one_time">One Time</option>
+                                <option value="recurring">Recurring</option>
+                                <option value="followup">Follow-up</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div className="create_appointment_input_div">
+                            <div className="create_appointment_input" style={{width: '100%'}}>
+                              <label>Description (Optional)</label>
+                              <textarea
+                                id="description"
+                                name="description"
+                                className="trio_mendate"
+                                rows="3"
+                                placeholder="Any specific concerns or notes..."
+                                style={{width: '100%', resize: 'vertical'}}
                               />
                             </div>
                           </div>

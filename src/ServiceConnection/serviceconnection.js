@@ -13,6 +13,7 @@ const publishableKey =
 const APL_LINK = process.env.REACT_APP_API_URL || "http://localhost:8080";
 
   // APL_LINK = "https://ethi-backend-master-1.onrender.com";
+  // https://ethi-backend-master.onrender.com
   
   let local_server_link_react = APL_LINK + "/api/admin_link/";
   let local_server_web_react = APL_LINK + "/api/web_link/";

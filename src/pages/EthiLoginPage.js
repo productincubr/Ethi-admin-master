@@ -128,7 +128,7 @@ function EthiLoginPage() {
                     {/* GOOGLE EMAIL */}
                     <div className="ethi-google-row">
                         <img src={googleIcon} alt="google" className="ethi-google-icon" />
-                        <span className="ethi-google-label">Log in with Google</span>
+                        <span className="ethi-google-label">Log in with your email</span>
                     </div>
 
                     <input
@@ -151,19 +151,19 @@ function EthiLoginPage() {
                         </button>
                     </div>
 
-                    {/* ADMIN REGISTRATION LINK
+                    {/* ADMIN REGISTRATION LINK */}
                     <div className="ethi-signup-section">
                         <p className="ethi-signup-text">
-                            New admin?{" "}
+                            New User ?{" "}
                             <button
                                 type="button"
                                 className="ethi-signup-link"
-                                onClick={() => navigate("/admin-register")}
+                                onClick={() => navigate("/sign-up")}
                             >
-                                Create Admin Account
+                                Sign Up
                             </button>
                         </p>
-                    </div> */}
+                    </div>
                 </div>
             </div>
         </div>

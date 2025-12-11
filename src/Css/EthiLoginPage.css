@@ -183,8 +183,9 @@
 
 /* BUTTONS ROW */
 .ethi-btn-row {
+  width:100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 10px;
 }
 
