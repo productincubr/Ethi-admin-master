@@ -130,7 +130,8 @@ function App() {
           {/* <Route path="/home" element={<HomeNew />} /> */}
 
           {/* Login Pages */}
-          <Route path="/" element={<EthiLoginPage />} />
+          {/* <Route path="/" element={<EthiLoginPage />} /> */}
+          <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<EthiLoginPage />} />
 
           {/* Admin Registration - Quick registration for new admins */}
